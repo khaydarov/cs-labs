@@ -111,7 +111,7 @@ BST.prototype.remove = function(data) {
         return node.left;
       }
 
-      const tmpNode = node.right;
+      let tmpNode = node.right;
       while (tmpNode.left) {
         tmpNode = tmpNode.left;
       }

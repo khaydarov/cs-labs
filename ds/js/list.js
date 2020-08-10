@@ -54,7 +54,7 @@ function LinkedList() {
 
     let current = head;
     let position = 0;
-    while (current.getNext()) {
+    while (current) {
       if (current.getElement() === element) {
         return position;
       }
