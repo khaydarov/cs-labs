@@ -2,10 +2,10 @@
 
 $infinity = 1000000000;
 
-$amount = 180;
+$amount = 120;
 
-$notesCount = 3;
-$notes = [60, 60, 100];
+$notesCount = 2;
+$notes = [100, 60];
 
 $notesAmount[0] = 0;
 for ($i = 1; $i <= $amount; $i++) {
@@ -24,7 +24,7 @@ if ($notesAmount[$amount] === $infinity) {
     echo $notesAmount[$amount] . PHP_EOL;
     while ($amount > 0) {
         for($i = 0; $i < $notesCount; $i++) {
-            if ($notesAmount[$amount - $notes[$i]] === $notesAmount[$amount] - 1) {
+            if ($amount >= $notes[$i] && $notesAmount[$amount - $notes[$i]] === $notesAmount[$amount] - 1) {
                 echo $notes[$i] . ' ';
                 $amount -= $notes[$i];
                 break;
@@ -32,3 +32,21 @@ if ($notesAmount[$amount] === $infinity) {
         }
     }
 }
+
+//function iWantToGet($amount) {
+//    $notes = [100, 60];
+//    $result = [];
+//
+//    for ($i = 0; $i < count($notes); $i++) {
+//        $note = $notes[$i];
+//
+//        while ($amount - $note >= 0) {
+//            $amount -= $note;
+//            $result[] = $note;
+//        }
+//    }
+//
+//    return $result;
+//}
+//
+//var_dump(iWantToGet(120));
