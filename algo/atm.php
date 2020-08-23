@@ -11,7 +11,7 @@ class ATM
     private $banknotes = [];
 
     /**
-     * @var
+     * @var ATMAlgorithm
      */
     private $algorithm;
 
@@ -122,10 +122,10 @@ class NaiveImplementation implements ATMAlgorithm
     }
 }
 
-$atm = new ATM([100, 60], new NaiveImplementation());
-var_dump($atm->getBanknotes(120));
+//$atm = new ATM([100, 60], new NaiveImplementation());
+//var_dump($atm->getBanknotes(120));
 
 echo PHP_EOL;
 
 $atm1 = new ATM([100, 60], new DpImplementation());
-var_dump($atm1->getBankNotes(120));
+var_dump(count($atm1->getBankNotes(1000000)));
