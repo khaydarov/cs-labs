@@ -197,6 +197,28 @@ class BST
     }
 
     /**
+     * @param $value
+     * @return Node|null
+     */
+    public function find($value): ?Node
+    {
+        $current = $this->getRoot();
+        while ($current) {
+            if ($current->getValue() === $value) {
+                return $current;
+            }
+
+            if ($current->getValue() < $value) {
+                $current = $current->getRight();
+            } else if ($current->getValue() > $value) {
+                $current = $current->getLeft();
+            }
+        }
+
+        return $current;
+    }
+
+    /**
      * @param Node $node
      * @param mixed $value
      */
@@ -243,6 +265,7 @@ class BST
 $bst = new BST();
 $bst->insert(1);
 $bst->insert(2);
+$bst->insert(3);
 $bst->insert(9);
 $bst->insert(4);
 
@@ -251,3 +274,4 @@ $bst->delete(9);
 $bst->delete(4);
 echo $bst->min();
 echo $bst->max();
+var_dump($bst->find(2));
