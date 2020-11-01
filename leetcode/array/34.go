@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	nums := []int{1, 2, 2}
+	nums := []int{1, 2, 2, 2, 4}
 	r := searchRange(nums, 2)
 	fmt.Println(r)
 }
@@ -14,14 +14,8 @@ func searchRange(nums []int, target int) []int {
 	if len(nums) == 0 || nums[l] != target {
 		return []int{-1, -1}
 	}
-
 	r := binSearch(nums, target, true)
-
-	if nums[r] == target {
-		return []int{l, r}
-	} else {
-		return []int{l, r - 1}
-	}
+	return []int{l, r}
 }
 
 func binSearch(arr []int, target int, right bool) int {
@@ -38,5 +32,9 @@ func binSearch(arr []int, target int, right bool) int {
 		}
 	}
 
-	return l
+	if arr[r] == target {
+		return r
+	} else {
+		return r - 1
+	}
 }
