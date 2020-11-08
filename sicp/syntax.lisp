@@ -51,4 +51,21 @@
 ;Custom predicates
 (define (>= x y) (or (> x y) (= x y)))
 (define (number_between x y z) (and (< x z) (> y z)))
+
+;Tip:
+; - functions defined with lambda use applicative order and evaluated right to left
+; - special forms use normal order (and, or, if, cond ..)
+; 
+; Applicative-order
+; (double (* 3 4))
+; (double 12)
+; (+ 12 12)
+; 24
+; 
+; Normal-order
+; (double (* 3 4))
+; (+ (* 3 4) (* 3 4))
+; (+ 12 (* 3 4))
+; (+ 12 12)
+; 24
     	
