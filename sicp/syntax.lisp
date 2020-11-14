@@ -68,4 +68,9 @@
 ; (+ 12 (* 3 4))
 ; (+ 12 12)
 ; 24
-    	
+
+;Recursion: calculate factorial 
+define (factorial n)
+  	(if (= n 1)
+  		1
+  		(* n (factorial (- n 1)))))
