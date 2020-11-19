@@ -1,0 +1,6 @@
+(define (fast-expt a n)
+	(define (iter a n product)
+		(cond ((= n 0) product)
+				((odd? n) (iter a (- n 1) (* a product)))
+				(else (iter (* a a) (/ n 2) product))))
+	(iter a n 1))

@@ -74,3 +74,23 @@ define (factorial n)
   	(if (= n 1)
   		1
   		(* n (factorial (- n 1)))))
+   
+;Closures
+;Lets calculate sum: 1 + 2 + 3 + ... + n
+;For that we create inc procedure
+(define (inc a) (+ a 1))
+;then identity (returns argument itself)
+(define (identity x) x)
+;And write sum procedure
+(define (sum term a next b)
+	(if (> a b)
+		0
+		(+ (term a)
+			(sum term (next a) next b))))
+;So sum of numbers will be
+(define (sum-int a b)
+  (sum identity a inc b))
+
+;Or sum of squares
+(define (sum-sq a b)
+  (sum square a inc b))
