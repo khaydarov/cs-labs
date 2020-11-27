@@ -5,10 +5,10 @@
 (+ (+ 1 3) (* 2 4))
 
 ;Complex arithmetic expression
-(+ 
+(+
   (* (+ 1 5) (+ 1 6))
   (* (* 2 5) (+ 3 4))
-) 
+)
 
 ;Sets variable value
 (define foo 4)
@@ -18,8 +18,8 @@
 
 ;Defines a new function that uses another function
 ;Lisp uses applicative-order evaluation
-(define 
-  (sum_of_squares a b) 
+(define
+  (sum_of_squares a b)
   	(+ (square a) (square b)))
 
 ;Case analysis
@@ -30,7 +30,7 @@
 ;  		 (<p3> <e3>)
 ;  		 ...
 ;  		 (<pN> <eN>)
-(define (abs x) 
+(define (abs x)
   (cond ((> x 0) x)
     	((= x 0) 0)
     	((< x 0) (- x))))
@@ -47,7 +47,7 @@
   (if (< x 0)
      (- x)
      x))
-     
+
 ;Custom predicates
 (define (>= x y) (or (> x y) (= x y)))
 (define (number_between x y z) (and (< x z) (> y z)))
@@ -55,13 +55,13 @@
 ;Tip:
 ; - functions defined with lambda use applicative order and evaluated right to left
 ; - special forms use normal order (and, or, if, cond ..)
-; 
+;
 ; Applicative-order
 ; (double (* 3 4))
 ; (double 12)
 ; (+ 12 12)
 ; 24
-; 
+;
 ; Normal-order
 ; (double (* 3 4))
 ; (+ (* 3 4) (* 3 4))
@@ -69,12 +69,12 @@
 ; (+ 12 12)
 ; 24
 
-;Recursion: calculate factorial 
+;Recursion: calculate factorial
 define (factorial n)
   	(if (= n 1)
   		1
   		(* n (factorial (- n 1)))))
-   
+
 ;Closures
 ;Lets calculate sum: 1 + 2 + 3 + ... + n
 ;For that we create inc procedure
@@ -94,3 +94,13 @@ define (factorial n)
 ;Or sum of squares
 (define (sum-sq a b)
   (sum square a inc b))
+
+;Lambda procedure: anonymous functions
+;Returns procedure that can be used
+(lambda (a b) (+ a b))
+
+;Local variables
+(define (f)
+  (let (a 1)
+       (b 2))
+   (+ a b))
