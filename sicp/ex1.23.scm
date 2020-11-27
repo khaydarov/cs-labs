@@ -1,0 +1,8 @@
+(define (smallest-divisor n)
+  (define (find-divisor n test-divisor)
+	(define (divides? a b)
+		(= (remainder a b) 0))
+	(cond ((> (square test-divisor) n) n)
+			((divides? n test-divisor) test-divisor)
+			(else (find-divisor n (+ 1 test-divisor)))))
+  (find-divisor n 2))
