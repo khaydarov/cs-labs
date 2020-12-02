@@ -1,0 +1,20 @@
+(define (cond-frac n d k)
+	(define (iter i)
+		(if (= i k)
+			0
+			(/ (n i) (+ (d i) (iter (+ i 1))))))
+	(iter 1))
+
+(define (F i)
+  (define tolerance 0.00001)
+  (define phi (/ 1 1.618033987))
+  (define (close-enough? a b)
+  	(< (abs (- a b)) tolerance))
+  (let ((next (cond-frac (lambda (i) 1.0) (lambda (i) 1.0) i)))
+  	(display i)
+  	(display ": ")
+  	(display next)
+  	(newline)
+  	(if (close-enough? next phi)
+  		next
+  		(F (+ i 1)))))

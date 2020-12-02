@@ -1,0 +1,6 @@
+(define (n-root x n)
+	(define (power a b)
+  		(exp (* b (log a))))
+	(define (f y)
+		(/ x (power y (- n 1))))
+	(fixed-point ((repeated average-damp n) f) 1.0))

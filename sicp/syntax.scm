@@ -101,6 +101,6 @@ define (factorial n)
 
 ;Local variables
 (define (f)
-  (let (a 1)
-       (b 2))
-   (+ a b))
+  (let ((a 1)
+    (b 2))
+  (+ a b)))

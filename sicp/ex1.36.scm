@@ -1,0 +1,15 @@
+(define (fixed-point f guess)
+	(define tolerance 0.0000001)
+	(define (close-enough? a b)
+		(< (abs (- a b)) tolerance))
+	(define (try guess)
+	 	(let ((next (f guess)))
+				(if (close-enough? next guess)
+					guess
+					(try next))))
+	(try guess))
+
+(fixed-point (lambda (y)
+							(if (= y 1)
+								(average y (log 1000))
+								(average y (/ (log 1000) (log y))))) 1.0)
