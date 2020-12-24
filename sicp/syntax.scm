@@ -104,3 +104,12 @@ define (factorial n)
   (let ((a 1)
     (b 2))
   (+ a b)))
+
+;defining list
+(cons 1
+    (cons 2
+        (cons 3
+            (cons 4 nil))))
+
+;or use syntax list
+(list 1 2 3 4)
