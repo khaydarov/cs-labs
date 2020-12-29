@@ -1,0 +1,15 @@
+(define nil '())
+(define (same-partity x . y)
+	(define (filter unfiltered-list filter-condition)
+		(define (iterate arr result)
+			(if (null? arr)
+				result
+				(let ((v (car arr)))
+					(if (filter-condition v)
+						(iterate (cdr arr) (append result (list v)))
+						(iterate (cdr arr) result)))))
+		(iterate unfiltered-list nil))
+
+	(if (even? x)
+		(filter y even?)
+		(filter y odd?)))
