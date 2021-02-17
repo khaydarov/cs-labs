@@ -10,7 +10,6 @@ import "fmt"
 //  - Deletion: O(1) | O(1)
 //
 // Space complexity: O(N)
-
 type Node struct {
 	value 	int
 	next 	*Node
