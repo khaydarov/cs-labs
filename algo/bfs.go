@@ -113,6 +113,8 @@ func Constructor(k int) CircularQueue {
 	}
 }
 
+// Breadth First Search
+// TC: O(V + E), where V is the number of vertices and E is the number of edges in the graph
 func BFS1(graph [][]int, root, target int) int {
 	q := Constructor(10)
 	q.EnQueue(root)
@@ -141,6 +143,8 @@ func BFS1(graph [][]int, root, target int) int {
 	return -1
 }
 
+// TC: O(V+E)
+// SC: O(V)
 func BFS(graph [][]int, root, target int) int {
 	q := Constructor(10)
 	s := Set{}
