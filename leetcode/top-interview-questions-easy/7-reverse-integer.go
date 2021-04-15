@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// TC: O(X), where X is the number of digits
+// SC: O(1)
 func reverse(x int) int {
 	min := -2147483648
 	max := 2147483647
