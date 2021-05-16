@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// Linked list implementation
+// Node
 // Time complexity
 //  - Access: O(N) | O(N)
 //  - Search: O(N) | O(N)

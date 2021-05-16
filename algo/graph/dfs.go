@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// DFS
 // TC: O(V + E), where V is the number of vertices and E is the number of edges in the graph.
 func DFS(graph [][]int, x, y int) bool {
 	if x == y {
@@ -19,6 +20,7 @@ func DFS(graph [][]int, x, y int) bool {
 	return false
 }
 
+// DFS1
 // TC: O(V + E), where V is the number of vertices and E is the number of edges in the graph.
 // SC: O(V)
 func DFS1(graph [][]int, x, y int) bool {

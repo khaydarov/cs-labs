@@ -10,7 +10,7 @@ type HashMap struct {
 	buckets [][]*Value
 }
 
-// Add appends the element to the bucket if it is not exist
+// Put — Add appends the element to the bucket if it is not exist
 func (hm *HashMap) Put(key, value int) {
 	bucket := hm.getBucket(key)
 

@@ -2,13 +2,13 @@ package main
 
 import "fmt"
 
-// Linked list
+// Node — Linked list
 type Node struct {
 	Val int
 	Next *Node
 }
 
-// Queue that stored data with Linked list
+// ListQueue — Queue that stored data with Linked list
 type ListQueue struct {
 	data *Node
 }
@@ -59,7 +59,7 @@ func (q *ListQueue) Display() {
 
 // ----------------------------
 
-// Queue that stores data with array
+// ArrayQueue Queue that stores data with array
 type ArrayQueue struct {
 	data 	[]int
 	pointer int

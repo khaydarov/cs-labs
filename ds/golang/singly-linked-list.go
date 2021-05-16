@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// Linked list implementation
+// Node — Linked list implementation
 // Time complexity
 //  - Access: O(N) | O(N)
 //  - Search: O(N) | O(N)
@@ -25,7 +25,7 @@ func (l *LinkedList) Len() int {
 	return l.length
 }
 
-/** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
+// Get the value of the index-th node in the linked list. If the index is invalid, return -1
 func (l *LinkedList) Get(index int) int {
 	if index >= l.length || index < 0 {
 		return -1
@@ -42,7 +42,7 @@ func (l *LinkedList) Get(index int) int {
 }
 
 
-/** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
+// AddAtHead adds a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list
 func (l *LinkedList) AddAtHead(val int)  {
 	node := &Node{value: val}
 	if l.head == nil {
@@ -55,7 +55,7 @@ func (l *LinkedList) AddAtHead(val int)  {
 }
 
 
-/** Append a node of value val to the last element of the linked list. */
+// AddAtTail Append a node of value val to the last element of the linked list
 func (l *LinkedList) AddAtTail(val int)  {
 	node := &Node{value: val}
 	if l.head == nil {
@@ -71,7 +71,7 @@ func (l *LinkedList) AddAtTail(val int)  {
 }
 
 
-/** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
+// AddAtIndex Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted
 func (l *LinkedList) AddAtIndex(index int, val int)  {
 	if index < 0 || index > l.length {
 		return
@@ -99,7 +99,7 @@ func (l *LinkedList) AddAtIndex(index int, val int)  {
 }
 
 
-/** Delete the index-th node in the linked list, if the index is valid. */
+// DeleteAtIndex deletes the index-th node in the linked list, if the index is valid
 func (l *LinkedList) DeleteAtIndex(index int)  {
 	if index < 0 || index >= l.length {
 		return
