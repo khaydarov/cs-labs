@@ -84,13 +84,12 @@ func HeapSort(arr *[]int) {
 	n := len(*arr)
 
 	h := MinHeap{
-		data: make([]int, n),
+		data: *arr,
+		size: n,
 		cap: n,
 	}
 
-	for _, v := range *arr {
-		h.Add(v)
-	}
+	h.Heapify(0)
 
 	for i := 0; i < n; i++ {
 		(*arr)[i] = h.GetMin()
