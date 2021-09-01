@@ -162,6 +162,64 @@ func lowestCommonAncestor2(root, p, q *TreeNode) *TreeNode {
 	return q
 }
 
+// TC: O(N)
+// SC: O(N)
+func lowestCommonAncestor3(root, p, q *TreeNode) *TreeNode {
+	var order []*TreeNode
+	var first map[*TreeNode]int
+	var height map[*TreeNode]int
+
+	first = make(map[*TreeNode]int)
+	height = make(map[*TreeNode]int)
+
+	var dfs func (node *TreeNode, depth int)
+	dfs = func (node *TreeNode, depth int) {
+		if node == nil {
+			return
+		}
+
+		order = append(order, node)
+		height[node] = depth
+
+		if node.Left != nil {
+			dfs(node.Left, depth + 1)
+			order = append(order, node)
+		}
+
+		if node.Right != nil {
+			dfs(node.Right, depth + 1)
+			order = append(order, node)
+		}
+	}
+
+	dfs(root, 0)
+
+	for i, v := range order {
+		if _, ok := first[v]; !ok {
+			first[v] = i
+		}
+	}
+
+	l := first[p]
+	r := first[q]
+
+	if l > r {
+		l, r = r, l
+	}
+
+	minNode := order[l]
+	minHeight := height[minNode]
+	for i := l + 1; i <= r; i++ {
+		node := order[i]
+		if minHeight > height[node] {
+			minHeight = height[node]
+			minNode = node
+		}
+	}
+
+	return minNode
+}
+
 func main() {
 	zero := &TreeNode{0, nil, nil}
 	one := &TreeNode{1, nil, nil}
