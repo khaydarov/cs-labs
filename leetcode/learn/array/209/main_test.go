@@ -6,33 +6,33 @@ import (
 )
 
 var testCases = []struct {
-	x      float64
-	n      int
-	expect float64
+	nums   []int
+	target int
+	expect int
 }{
 	{
+		[]int{2, 3, 1, 2, 4, 3},
+		7,
 		2,
-		3,
-		8,
 	},
 	{
-		3,
-		2,
-		9,
+		[]int{1, 4, 4},
+		1,
+		1,
 	},
 	{
-		1,
-		10,
-		1,
+		[]int{1, 1, 1, 1, 1, 1, 1, 1},
+		11,
+		0,
 	},
 }
 
 func TestSolution(t *testing.T) {
 	for i, testCase := range testCases {
 		t.Run(fmt.Sprintf("test/%d", i), func(t *testing.T) {
-			output := myPowRecursive(testCase.x, testCase.n)
+			output := minSubArrayLen(testCase.target, testCase.nums)
 			if output != testCase.expect {
-				t.Errorf("Output %f not equal to expected %f", output, testCase.expect)
+				t.Errorf("Not equal to expected %d", testCase.expect)
 			}
 		})
 	}
