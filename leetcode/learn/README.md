@@ -1,0 +1,7 @@
+Solutions for learning section
+
+| Problem                                                                                                                                               | Difficulty | Solution                                                                             |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------|------------|--------------------------------------------------------------------------------------|
+| [4. Median of Two Sorted Arrays](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)                              | Hard       | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/array/4)  |
+| [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) | Medium     | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/array/34) |
+| [50. Pow(x, n)](https://leetcode.com/problems/powx-n/)                                                                                                | Medium     | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/array/50) |

@@ -1,13 +1,5 @@
 package main
 
-import "fmt"
-
-func main() {
-	nums := []int{1, 2, 2, 2, 4}
-	r := searchRange(nums, 2)
-	fmt.Println(r)
-}
-
 func searchRange(nums []int, target int) []int {
 	l := binSearch(nums, target, false)
 
