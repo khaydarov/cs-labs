@@ -1,12 +1,12 @@
-package leetcode
+package _721
 
 import (
 	"fmt"
 )
 
 type ListNode struct {
-	Val 	int
-	Next 	*ListNode
+	Val  int
+	Next *ListNode
 }
 
 func (l *ListNode) Add(val int) {
@@ -104,7 +104,7 @@ func swapNodes(head *ListNode, k int) *ListNode {
 	} else {
 		head = currX
 	}
-	
+
 	temp := currX.Next
 	currX.Next = currY.Next
 	currY.Next = temp

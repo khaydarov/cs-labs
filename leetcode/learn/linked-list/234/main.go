@@ -1,10 +1,10 @@
-package leetcode
+package _34
 
 import "fmt"
 
 type ListNode struct {
-	Val 	int
-	Next 	*ListNode
+	Val  int
+	Next *ListNode
 }
 
 func (l *ListNode) Add(val int) {

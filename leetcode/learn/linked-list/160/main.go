@@ -1,10 +1,10 @@
-package leetcode
+package _60
 
 import "fmt"
 
 type ListNode struct {
-	Val 	int
-	Next 	*ListNode
+	Val  int
+	Next *ListNode
 }
 
 func (l *ListNode) Add(val int) {
@@ -96,7 +96,7 @@ func getIntersectionNode2(headA, headB *ListNode) *ListNode {
 	intersectionPosition := (l1 + l2 - l3 + 1) / 2
 
 	currentPosition := 0
-	for currentPosition < intersectionPosition - 1 {
+	for currentPosition < intersectionPosition-1 {
 		currentPosition++
 		intersectionNode = intersectionNode.Next
 	}
@@ -126,7 +126,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	}
 
 	diff := l1 - l2
-	for diff != 0{
+	for diff != 0 {
 		diff--
 		headA = headA.Next
 	}

@@ -1,10 +1,10 @@
-package leetcode
+package _6
 
 import "fmt"
 
 type ListNode struct {
-	Val 	int
-	Next 	*ListNode
+	Val  int
+	Next *ListNode
 }
 
 func (l *ListNode) Add(val int) {
@@ -95,7 +95,7 @@ func removeNthFromEnd2(head *ListNode, n int) *ListNode {
 	slow := dummy
 	fast := dummy
 
-	for i := 1; i <= n + 1; i++ {
+	for i := 1; i <= n+1; i++ {
 		fast = fast.Next
 	}
 

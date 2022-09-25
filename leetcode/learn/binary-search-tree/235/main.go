@@ -1,10 +1,10 @@
-package main
+package _35
 
 // TC: O(N)
 // SC: O(N)
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	var dfs func(root, min, max *TreeNode) *TreeNode
-	dfs = func (node, min, max *TreeNode) *TreeNode {
+	dfs = func(node, min, max *TreeNode) *TreeNode {
 		if node == nil {
 			return nil
 		}

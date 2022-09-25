@@ -1,10 +1,10 @@
-package leetcode
+package _42
 
 import "fmt"
 
 type ListNode struct {
-	Val 	int
-	Next 	*ListNode
+	Val  int
+	Next *ListNode
 }
 
 func (l *ListNode) Add(val int) {
@@ -149,9 +149,9 @@ func detectCycle(head *ListNode) *ListNode {
 }
 
 func main() {
-	testCases := []struct{
-		head 	[]int
-		pos 	int
+	testCases := []struct {
+		head []int
+		pos  int
 	}{
 		{[]int{3, 2, 0, -4}, 1},
 		{[]int{1, 2}, 0},

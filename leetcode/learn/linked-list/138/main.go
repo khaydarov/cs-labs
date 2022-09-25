@@ -1,17 +1,17 @@
-package leetcode
+package _38
 
 import "fmt"
 
 type Node struct {
-	Val 	int
-	Prev 	*Node
-	Next 	*Node
-	Random	*Node
+	Val    int
+	Prev   *Node
+	Next   *Node
+	Random *Node
 }
 
 type DoublyLinkedList struct {
-	head 	*Node
-	length 	int
+	head   *Node
+	length int
 }
 
 func (list *DoublyLinkedList) AddAtHead(val int) {
@@ -83,7 +83,7 @@ func (list *DoublyLinkedList) DeleteAtIndex(index int) {
 		next.Prev = nil
 		list.head.Next = nil
 		list.head = next
-	} else if index == list.length - 1 {
+	} else if index == list.length-1 {
 		current := list.head
 		for current.Next != nil {
 			current = current.Next
@@ -239,4 +239,3 @@ func main() {
 	Display(l)
 	//Display(one)
 }
-

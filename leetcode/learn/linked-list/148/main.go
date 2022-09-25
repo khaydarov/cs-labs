@@ -1,12 +1,12 @@
-package leetcode
+package _48
 
 import (
 	"fmt"
 )
 
 type ListNode struct {
-	Val 	int
-	Next 	*ListNode
+	Val  int
+	Next *ListNode
 }
 
 func (l *ListNode) Add(val int) {
@@ -125,6 +125,5 @@ func main() {
 
 	sorted := MergeSort(l1)
 	Display(sorted)
-
 
 }

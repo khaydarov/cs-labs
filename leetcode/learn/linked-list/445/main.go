@@ -1,12 +1,12 @@
-package leetcode
+package _45
 
 import (
 	"fmt"
 )
 
 type ListNode struct {
-	Val 	int
-	Next 	*ListNode
+	Val  int
+	Next *ListNode
 }
 
 func (l *ListNode) Add(val int) {
@@ -88,7 +88,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		return addTwoNumbers(l2, l1)
 	}
 
-	l3, carry := rec(l1, l2, 0, len1 - len2)
+	l3, carry := rec(l1, l2, 0, len1-len2)
 
 	result := l3
 	if carry != 0 {
@@ -110,10 +110,10 @@ func rec(l1, l2 *ListNode, p1, p2 int) (*ListNode, int) {
 
 	var l3 *ListNode
 	if p2 > p1 {
-		l3, carry = rec(l1.Next, l2, p1 + 1, p2)
+		l3, carry = rec(l1.Next, l2, p1+1, p2)
 		sum = l1.Val + carry
 	} else {
-		l3, carry = rec(l1.Next, l2.Next, p1 + 1, p2 + 1)
+		l3, carry = rec(l1.Next, l2.Next, p1+1, p2+1)
 		sum = l1.Val + l2.Val + carry
 	}
 
