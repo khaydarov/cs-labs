@@ -2,11 +2,6 @@ package main
 
 import "fmt"
 
-func main() {
-	nums := []int{8, 1, 2, 2, 3}
-	smallerNumbersThanCurrent(nums)
-}
-
 /**
  * TC = O (N * log N)
  * SC = O (N)
