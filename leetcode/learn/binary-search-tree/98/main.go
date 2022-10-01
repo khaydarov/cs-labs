@@ -1,20 +1,19 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
 type TreeNode struct {
-	Val 	int
-	Left 	*TreeNode
-	Right 	*TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 // TC: O(N)
 // SC: O(N)
 func isValidBST(root *TreeNode) bool {
-	var validate func (node *TreeNode, low, high int) bool
+	var validate func(node *TreeNode, low, high int) bool
 	validate = func(node *TreeNode, low, high int) bool {
 		if node == nil {
 			return true
@@ -33,7 +32,7 @@ func isValidBST(root *TreeNode) bool {
 }
 
 type TreeNodeWithBoundary struct {
-	node *TreeNode
+	node      *TreeNode
 	low, high int
 }
 
@@ -51,8 +50,8 @@ func (s *Stack) Pop() *TreeNodeWithBoundary {
 		return nil
 	}
 
-	pop := s.nodes[len(s.nodes) - 1]
-	s.nodes = s.nodes[:len(s.nodes) - 1]
+	pop := s.nodes[len(s.nodes)-1]
+	s.nodes = s.nodes[:len(s.nodes)-1]
 
 	return pop
 }
@@ -115,20 +114,4 @@ func isValidBST2(root *TreeNode) bool {
 	}
 
 	return inorder(root)
-}
-
-func main() {
-	zero := &TreeNode{5, nil, nil}
-	one := &TreeNode{1, nil, nil}
-	two := &TreeNode{4, nil, nil}
-	three := &TreeNode{3, nil, nil}
-	four := &TreeNode{6, nil, nil}
-
-	zero.Left = one
-	zero.Right = two
-
-	two.Left = three
-	two.Right = four
-
-	fmt.Println(isValidBST2(zero))
 }
