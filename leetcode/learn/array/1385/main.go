@@ -2,13 +2,8 @@ package main
 
 import "sort"
 
-func main() {
-	arr1 := []int{2,1,100,3}
-	arr2 := []int{-5,-2,10,-3,7}
-	d := 6
-	findTheDistanceValue(arr1, arr2, d)
-}
-
+// TC: O(N * M)
+// SC: O(1)
 func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
 	sort.Ints(arr2)
 
@@ -16,7 +11,7 @@ func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {
 	for _, v := range arr1 {
 		found := false
 		for i := len(arr2) - 1; i >= 0; i-- {
-			if abs(arr2[i] - v) <= d {
+			if abs(arr2[i]-v) <= d {
 				found = true
 				break
 			}
@@ -37,4 +32,3 @@ func abs(x int) int {
 
 	return x
 }
-

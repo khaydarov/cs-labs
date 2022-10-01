@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	matrix := [][]int{ {1, 0, 1}, {1, 1, 0}, {1, 1, 0}}
+	//matrix := [][]int{ {1, 0, 1}, {1, 1, 0}, {1, 1, 0}}
+	matrix := [][]int{{0, 1}, {1, 1}}
 	r := countSquares(matrix)
 	fmt.Println(r)
 }
@@ -27,7 +28,7 @@ func countSquares(matrix [][]int) int {
 	for i := 0; i < n; i++ {
 		for j := 0; j < m; j++ {
 			if matrix[i][j] == 1 && i > 0 && j > 0 {
-				matrix[i][j] = min(matrix[i - 1][j], min(matrix[i][j - 1], matrix[i - 1][j - 1])) + 1
+				matrix[i][j] = min(matrix[i-1][j], min(matrix[i][j-1], matrix[i-1][j-1])) + 1
 			}
 			result += matrix[i][j]
 		}
