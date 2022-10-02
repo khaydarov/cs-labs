@@ -19,7 +19,7 @@ func (s *Stack) Top() int {
 		return -1
 	}
 
-	return s.data[l - 1]
+	return s.data[l-1]
 }
 
 // Pop removes the last element from storage
@@ -37,7 +37,4 @@ func (s *Stack) Pop() bool {
 // Empty returns true if slack is empty
 func (s *Stack) Empty() bool {
 	return len(s.data) == 0
-}
-
-func main() {
 }

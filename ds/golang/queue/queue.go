@@ -2,55 +2,69 @@ package main
 
 import "fmt"
 
-// Node — Linked list
+// Node — Doubly Linked list
 type Node struct {
-	Val int
+	Val  int
 	Next *Node
+	Prev *Node
 }
 
 // ListQueue — Queue that stored data with Linked list
 type ListQueue struct {
-	data *Node
+	head *Node
+	tail *Node
+}
+
+func ConstructListQueue() *ListQueue {
+	head := &Node{Val: 0}
+	tail := &Node{Val: 0}
+
+	head.Next = tail
+	tail.Prev = head
+
+	return &ListQueue{
+		head,
+		tail,
+	}
 }
 
 // Enqueue adds new value to the end of queue
 func (q *ListQueue) Enqueue(x int) {
-	node := &Node{x, nil}
-	if q.data == nil {
-		q.data = node
-	} else {
-		current := q.data
-		for current.Next != nil {
-			current = current.Next
-		}
-		current.Next = node
-	}
+	newNode := &Node{Val: x}
+
+	lastNode := q.tail.Prev
+
+	newNode.Prev = lastNode
+	lastNode.Next = newNode
+
+	newNode.Next = q.tail
+	q.tail.Prev = newNode
 }
 
 // Front returns first element value
 func (q *ListQueue) Front() int {
-	if q.data == nil {
+	if q.head.Next == q.tail {
 		return -1
 	}
 
-	return q.data.Val
+	return q.head.Next.Val
 }
 
 // Dequeue removes returns first element and removes it
 func (q *ListQueue) Dequeue() int {
-	if q.data == nil {
+	if q.head.Next == q.tail {
 		return -1
 	}
 
-	value := q.data.Val
-	q.data = q.data.Next
+	value := q.head.Next.Val
+	q.head.Next = q.head.Next.Next
 
 	return value
 }
 
-// Shows queue elements
+// Display Shows queue elements
 func (q *ListQueue) Display() {
-	current := q.data
+	current := q.head
 	for current != nil {
 		fmt.Println(current.Val)
 		current = current.Next
@@ -61,9 +75,9 @@ func (q *ListQueue) Display() {
 
 // ArrayQueue Queue that stores data with array
 type ArrayQueue struct {
-	data 	[]int
+	data    []int
 	pointer int
-	length 	int
+	length  int
 }
 
 func (q *ArrayQueue) Enqueue(x int) {
@@ -104,11 +118,4 @@ func main() {
 	q1.Enqueue(2)
 	q1.Enqueue(3)
 	q1.Dequeue()
-
-	q2 := ArrayQueue{}
-	q2.Enqueue(1)
-	q2.Enqueue(2)
-	q2.Enqueue(3)
-	q2.Dequeue()
-	//q2.Display()
 }
