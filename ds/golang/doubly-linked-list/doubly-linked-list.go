@@ -11,44 +11,48 @@ import "fmt"
 //
 // Space complexity: O(N)
 type Node struct {
-	Val 	int
-	Prev 	*Node
-	Next 	*Node
+	Val  int
+	Prev *Node
+	Next *Node
 }
 
 type DoublyLinkedList struct {
-	head 	*Node
-	length 	int
+	head   *Node
+	tail   *Node
+	length int
+}
+
+func Construct() *DoublyLinkedList {
+	head := &Node{Val: 0}
+	tail := &Node{Val: 0}
+
+	head.Next = tail
+	tail.Prev = head
+
+	return &DoublyLinkedList{
+		head,
+		tail,
+		0,
+	}
 }
 
 func (list *DoublyLinkedList) AddAtHead(val int) {
 	node := &Node{Val: val}
+	node.Next = list.head.Next
+	node.Prev = list.head
 
-	if list.head == nil {
-		list.head = node
-	} else {
-		node.Next = list.head
-		list.head.Prev = node
-		list.head = node
-	}
-
+	list.head.Next.Prev = node
+	list.head.Next = node
 	list.length++
 }
 
 func (list *DoublyLinkedList) AddAtTail(val int) {
 	node := &Node{Val: val}
-	if list.head == nil {
-		list.head = node
-	} else {
-		current := list.head
-		for current.Next != nil {
-			current = current.Next
-		}
+	node.Next = list.tail
+	node.Prev = list.tail.Prev
 
-		current.Next = node
-		node.Prev = current
-	}
-
+	list.tail.Prev.Next = node
+	list.tail.Prev = node
 	list.length++
 }
 
@@ -62,7 +66,7 @@ func (list *DoublyLinkedList) AddAtIndex(index, val int) {
 	} else if index == list.length {
 		list.AddAtTail(val)
 	} else {
-		current := list.head
+		current := list.head.Next
 		for index > 0 {
 			current = current.Next
 			index--
@@ -81,25 +85,24 @@ func (list *DoublyLinkedList) AddAtIndex(index, val int) {
 }
 
 func (list *DoublyLinkedList) DeleteAtIndex(index int) {
-	if index < 0 || index > list.length {
+	if index < 0 || index > list.length || list.length == 0 {
 		return
 	}
 
 	if index == 0 {
-		next := list.head.Next
-		next.Prev = nil
-		list.head.Next = nil
-		list.head = next
-	} else if index == list.length - 1 {
-		current := list.head
-		for current.Next != nil {
-			current = current.Next
-		}
+		current := list.head.Next
+		next := current.Next
 
-		current.Prev.Next = nil
-		current.Prev = nil
+		list.head.Next = next
+		next.Prev = list.head
+	} else if index == list.length-1 {
+		current := list.tail.Prev
+		previous := current.Prev
+
+		list.tail.Prev = previous
+		previous.Next = current.Next
 	} else {
-		current := list.head
+		current := list.head.Next
 		for index > 0 {
 			current = current.Next
 			index--
@@ -117,7 +120,7 @@ func (list *DoublyLinkedList) Get(index int) *Node {
 		return nil
 	}
 
-	current := list.head
+	current := list.head.Next
 	for index > 0 {
 		current = current.Next
 		index--
@@ -126,22 +129,14 @@ func (list *DoublyLinkedList) Get(index int) *Node {
 	return current
 }
 
+func (list *DoublyLinkedList) Length() int {
+	return list.length
+}
+
 func (list *DoublyLinkedList) Display() {
 	current := list.head
 	for current != nil {
-		fmt.Println(current)
+		fmt.Println(current, current.Val)
 		current = current.Next
 	}
 }
-
-func main() {
-	l := &DoublyLinkedList{}
-	l.AddAtTail(0)
-	l.AddAtTail(1)
-	l.AddAtTail(2)
-	l.AddAtTail(3)
-
-	l.DeleteAtIndex(1)
-	l.Display()
-}
-

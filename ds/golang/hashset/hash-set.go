@@ -1,9 +1,16 @@
-package main
+package hashset
 
 // HashSet structure
 type HashSet struct {
-	size int
+	size    int
 	buckets [][]int
+}
+
+func Construct(size int) *HashSet {
+	return &HashSet{
+		size:    size,
+		buckets: make([][]int, size),
+	}
 }
 
 // Add appends the element to the bucket if it is not exist

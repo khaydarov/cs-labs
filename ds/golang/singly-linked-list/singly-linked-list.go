@@ -1,4 +1,4 @@
-package main
+package singly_linked_list
 
 import "fmt"
 
@@ -6,22 +6,30 @@ import "fmt"
 // Time complexity
 //  - Access: O(N) | O(N)
 //  - Search: O(N) | O(N)
-//  - Insertion: O(1) | O(1)
+//  - Insertion: O(1) | O(N)
 //  - Deletion: O(1) | O(1)
 //
 // Space complexity: O(N)
 type Node struct {
-	value 	int
-	next 	*Node
+	value int
+	next  *Node
+}
+
+func ConstructLinkedList() *LinkedList {
+	head := &Node{value: 0}
+
+	return &LinkedList{
+		0,
+		head,
+	}
 }
 
 type LinkedList struct {
-	length 	int
-	head 	*Node
-	tail	*Node
+	length int
+	head   *Node
 }
 
-func (l *LinkedList) Len() int {
+func (l *LinkedList) Length() int {
 	return l.length
 }
 
@@ -31,19 +39,17 @@ func (l *LinkedList) Get(index int) int {
 		return -1
 	}
 
-	pointer := 0
 	current := l.head
-	for pointer < index {
-		pointer++
+	for index > 0 {
+		index--
 		current = current.next
 	}
 
 	return current.value
 }
 
-
 // AddAtHead adds a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list
-func (l *LinkedList) AddAtHead(val int)  {
+func (l *LinkedList) AddAtHead(val int) {
 	node := &Node{value: val}
 	if l.head == nil {
 		l.head = node
@@ -54,9 +60,8 @@ func (l *LinkedList) AddAtHead(val int)  {
 	l.length++
 }
 
-
 // AddAtTail Append a node of value val to the last element of the linked list
-func (l *LinkedList) AddAtTail(val int)  {
+func (l *LinkedList) AddAtTail(val int) {
 	node := &Node{value: val}
 	if l.head == nil {
 		l.head = node
@@ -70,9 +75,8 @@ func (l *LinkedList) AddAtTail(val int)  {
 	l.length++
 }
 
-
 // AddAtIndex Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted
-func (l *LinkedList) AddAtIndex(index int, val int)  {
+func (l *LinkedList) AddAtIndex(index int, val int) {
 	if index < 0 || index > l.length {
 		return
 	}
@@ -98,9 +102,8 @@ func (l *LinkedList) AddAtIndex(index int, val int)  {
 	}
 }
 
-
 // DeleteAtIndex deletes the index-th node in the linked list, if the index is valid
-func (l *LinkedList) DeleteAtIndex(index int)  {
+func (l *LinkedList) DeleteAtIndex(index int) {
 	if index < 0 || index >= l.length {
 		return
 	}
@@ -130,4 +133,3 @@ func (l *LinkedList) Display() {
 		current = current.next
 	}
 }
-

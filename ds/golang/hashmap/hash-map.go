@@ -1,4 +1,4 @@
-package main
+package hashmap
 
 type Value struct {
 	Key, Value int
@@ -6,8 +6,15 @@ type Value struct {
 
 // HashMap structure
 type HashMap struct {
-	size int
+	size    int
 	buckets [][]*Value
+}
+
+func Construct(size int) *HashMap {
+	return &HashMap{
+		size,
+		make([][]*Value, size),
+	}
 }
 
 // Put — Add appends the element to the bucket if it is not exist

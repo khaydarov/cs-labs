@@ -1,13 +1,11 @@
 package main
 
-import "fmt"
-
 // Set structure
 // Time complexity depends on DS of storage. Current implementation uses simple array
 // For optimization we can use `balanced tree`
 type Set struct {
-	data 	[]int
-	length 	int
+	data   []int
+	length int
 }
 
 // Add appends new element to the set
@@ -79,19 +77,4 @@ func (s *Set) Difference(anotherSet Set) Set {
 	}
 
 	return differenceSet
-}
-
-func main() {
-	s := Set{}
-	s.Add(1)
-	s.Add(2)
-	s.Add(1)
-
-	s1 := Set{}
-	s1.Add(3)
-	s1.Add(4)
-
-	r := s.Union(s1)
-
-	fmt.Println(r.Values())
 }
