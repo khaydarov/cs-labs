@@ -1,9 +1,9 @@
 package main
 
 type TreeNode struct {
-	Val 	int
-	Left 	*TreeNode
-	Right 	*TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 type Stack struct {
@@ -19,8 +19,8 @@ func (s *Stack) Pop() *TreeNode {
 		return nil
 	}
 
-	top := s.data[len(s.data) - 1]
-	s.data = s.data[:len(s.data) - 1]
+	top := s.data[len(s.data)-1]
+	s.data = s.data[:len(s.data)-1]
 
 	return top
 }
