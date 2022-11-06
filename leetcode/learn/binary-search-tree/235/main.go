@@ -1,4 +1,10 @@
-package _35
+package main
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
 // TC: O(N)
 // SC: O(N)
