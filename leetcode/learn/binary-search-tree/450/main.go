@@ -3,32 +3,9 @@ package main
 import "fmt"
 
 type TreeNode struct {
-	Val 	int
-	Left 	*TreeNode
-	Right 	*TreeNode
-}
-
-type Stack struct {
-	data []*TreeNode
-}
-
-func (s *Stack) Push(node *TreeNode) {
-	s.data = append(s.data, node)
-}
-
-func (s *Stack) Pop() *TreeNode {
-	if len(s.data) == 0 {
-		return nil
-	}
-
-	top := s.data[len(s.data) - 1]
-	s.data = s.data[:len(s.data) - 1]
-
-	return top
-}
-
-func (s *Stack) Empty() bool {
-	return len(s.data) == 0
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func deleteNode(root *TreeNode, key int) *TreeNode {
