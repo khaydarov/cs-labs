@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func isIsomorphic(s string, t string) bool {
 	transformationsST := make(map[byte]byte)
 	transformationsTS := make(map[byte]byte)
@@ -28,8 +26,4 @@ func isIsomorphic(s string, t string) bool {
 	}
 
 	return true
-}
-
-func main() {
-	fmt.Println(isIsomorphic("badc", "baba"))
 }
