@@ -2,85 +2,79 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
-type Set struct {
-	hmap map[string]bool
-}
+func groupStrings(strings []string) [][]string {
+	visited := make(map[string]bool)
 
-func (s *Set) Add(v string) {
-	if _, ok := s.hmap[v]; !ok {
-		s.hmap[v] = true
-	}
-}
+	var groups [][]string
 
-func (s *Set) Exists(v string) bool {
-	if _, ok := s.hmap[v]; ok {
-		return true
-	}
+	for i, v := range strings {
+		if _, ok := visited[v]; ok {
+			continue
+		}
 
-	return false
-}
+		var group []string
+		group = append(group, v)
+		visited[v] = true
 
-func (s *Set) Empty() bool {
-	return len(s.hmap) == 0
-}
-
-func (s *Set) Size() int {
-	return len(s.hmap)
-}
-
-type ValidWordAbbr struct {
-	dictionary map[string]Set
-}
-
-func Constructor(dictionary []string) ValidWordAbbr {
-	hmap := make(map[string]Set)
-	for _, word := range dictionary {
-		abbr := abbreviate(word)
-
-		wordSet, ok := hmap[abbr]
-		if !ok {
-			newSet := Set{
-				make(map[string]bool),
+		for j := i + 1; j < len(strings); j++ {
+			if isSameShiftingSequence(v, strings[j]) {
+				group = append(group, strings[i])
+				visited[strings[i]] = true
 			}
-			newSet.Add(word)
-			hmap[abbr] = newSet
-		} else {
-			wordSet.Add(word)
 		}
 	}
 
-	return ValidWordAbbr{
-		hmap,
-	}
+	return groups
 }
 
-func (this *ValidWordAbbr) IsUnique(word string) bool {
-	wordAbbr := abbreviate(word)
+func isSameShiftingSequence(base, target string) bool {
+	if len(base) != len(target) {
+		return false
+	}
 
-	abbrSet, ok := this.dictionary[wordAbbr]
-	if !ok || abbrSet.Empty() {
+	if len(base) == 1 && len(target) == 1 {
 		return true
 	}
 
-	if abbrSet.Exists(word) && abbrSet.Size() == 1 {
-		return true
+	diff := int(target[0]) - int(base[0])
+
+	for i := 1; i < len(base); i++ {
+		baseCharPosition := int(base[i] - 'a')
+		targetCharPosition := int(target[i] - 'a')
+
+		fmt.Println(baseCharPosition, targetCharPosition, (baseCharPosition+diff)%26)
+
+		if diff >= 0 && (baseCharPosition+diff)%26 != targetCharPosition {
+			return false
+		} else {
+			if baseCharPosition > abs(diff) && (baseCharPosition+diff)%26 != targetCharPosition {
+				return false
+			} else if (26+baseCharPosition+diff)%26 != targetCharPosition {
+				return false
+			}
+		}
 	}
 
-	return false
+	return true
 }
 
-func abbreviate(word string) string {
-	if len(word) > 2 {
-		return word[:1] + fmt.Sprintf("%v", len(word)-2) + word[len(word)-1:]
+func abs(x int) int {
+	if x < 0 {
+		return -1 * x
 	}
 
-	return word
+	return x
 }
 
 func main() {
-	q := Constructor([]string{"deer", "door", "cake", "card"})
-	q.IsUnique("coke")
+	//r := isSameShiftingSequence("abc", "bcd")
+	//fmt.Println(r)
 
+	r := make([]uint32, math.MaxUint32)
+	r[0] = 1
+
+	fmt.Println(r[0])
 }
