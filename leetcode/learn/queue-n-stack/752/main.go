@@ -52,7 +52,7 @@ func openLock(deadends []string, target string) int {
 	}
 
 	var code string
-	visited := make(map[string]bool)
+	seen := make(map[string]bool)
 
 	steps := 0
 	q := Queue{}
@@ -101,8 +101,8 @@ func openLock(deadends []string, target string) int {
 
 				code = fmt.Sprintf("%d%d%d%d", newX, newY, newZ, newW)
 
-				if v, ok := visited[code]; !ok && v == false {
-					visited[code] = true
+				if v, ok := seen[code]; !ok && v == false {
+					seen[code] = true
 
 					if _, ok := locks[code]; !ok {
 						q.Enqueue(WheelPosition{newX, newY, newZ, newW})
