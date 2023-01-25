@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type Node struct {
-	Val int
+	Val       int
 	Neighbors []*Node
 }
 
@@ -120,21 +120,4 @@ func PrintGraph(node *Node) {
 	}
 
 	dfs(node)
-}
-
-func main() {
-	one := Node{1, nil}
-	two := Node{2, nil}
-	three := Node{3, nil}
-	four := Node{4, nil}
-
-	one.Neighbors = []*Node{&two, &four}
-	two.Neighbors = []*Node{&one, &three}
-	three.Neighbors = []*Node{&two, &four}
-	four.Neighbors = []*Node{&one, &three}
-
-	r := cloneGraph(&one)
-	//fmt.Println(r)
-	//PrintGraph(&one)
-	PrintGraph(r)
 }

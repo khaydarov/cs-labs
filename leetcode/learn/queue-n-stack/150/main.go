@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 )
 
@@ -24,7 +23,7 @@ func (s *Stack) Top() int {
 		return 0
 	}
 
-	return s.data[l - 1]
+	return s.data[l-1]
 }
 
 // Pop removes the last element from storage
@@ -74,13 +73,4 @@ func evalRPN(tokens []string) int {
 	}
 
 	return stack.Top()
-}
-
-func main() {
-	tokens := []string{"2","1","+","3","*"}
-	//tokens := []string{"4","13","5","/","+"}
-	//tokens := []string{"10","6","9","3","+","-11","*","/","*","17","+","5","+"}
-
-	r := evalRPN(tokens)
-	fmt.Println(r)
 }

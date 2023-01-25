@@ -13,7 +13,6 @@ import "fmt"
 // SC: O(l*N), l - the range of sum, n - size of array
 //
 // Approach 3
-//
 func findTargetSumWays(nums []int, S int) int {
 	var calculate func(nums []int, i, sum, S int) int
 
@@ -32,8 +31,8 @@ func findTargetSumWays(nums []int, S int) int {
 			return v
 		}
 
-		add := calculate(nums, i + 1, sum + nums[i], S)
-		substract := calculate(nums, i + 1, sum - nums[i], S)
+		add := calculate(nums, i+1, sum+nums[i], S)
+		substract := calculate(nums, i+1, sum-nums[i], S)
 
 		cache[key] = add + substract
 

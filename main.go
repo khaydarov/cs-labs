@@ -1,80 +1,58 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
-
-func groupStrings(strings []string) [][]string {
-	visited := make(map[string]bool)
-
-	var groups [][]string
-
-	for i, v := range strings {
-		if _, ok := visited[v]; ok {
-			continue
-		}
-
-		var group []string
-		group = append(group, v)
-		visited[v] = true
-
-		for j := i + 1; j < len(strings); j++ {
-			if isSameShiftingSequence(v, strings[j]) {
-				group = append(group, strings[i])
-				visited[strings[i]] = true
-			}
-		}
-	}
-
-	return groups
+type Node struct {
+	Val       int
+	Neighbors []*Node
 }
 
-func isSameShiftingSequence(base, target string) bool {
-	if len(base) != len(target) {
-		return false
+func cloneGraph(node *Node) *Node {
+	copies := make(map[int]*Node)
+
+	clone := &Node{}
+	_helper(node, clone, copies)
+
+	return clone
+}
+
+func _helper(node *Node, clone *Node, copies map[int]*Node) {
+	if node == nil {
+		return
 	}
 
-	if len(base) == 1 && len(target) == 1 {
-		return true
-	}
+	clone.Val = node.Val
+	copies[node.Val] = clone
 
-	diff := int(target[0]) - int(base[0])
-
-	for i := 1; i < len(base); i++ {
-		baseCharPosition := int(base[i] - 'a')
-		targetCharPosition := int(target[i] - 'a')
-
-		fmt.Println(baseCharPosition, targetCharPosition, (baseCharPosition+diff)%26)
-
-		if diff >= 0 && (baseCharPosition+diff)%26 != targetCharPosition {
-			return false
+	for _, neighbor := range node.Neighbors {
+		if v, ok := copies[neighbor.Val]; ok {
+			clone.Neighbors = append(clone.Neighbors, v)
 		} else {
-			if baseCharPosition > abs(diff) && (baseCharPosition+diff)%26 != targetCharPosition {
-				return false
-			} else if (26+baseCharPosition+diff)%26 != targetCharPosition {
-				return false
-			}
+			neighborCopy := &Node{}
+			_helper(neighbor, neighborCopy, copies)
+
+			clone.Neighbors = append(clone.Neighbors, neighborCopy)
 		}
 	}
-
-	return true
-}
-
-func abs(x int) int {
-	if x < 0 {
-		return -1 * x
-	}
-
-	return x
 }
 
 func main() {
-	//r := isSameShiftingSequence("abc", "bcd")
-	//fmt.Println(r)
+	one := &Node{Val: 1}
+	two := &Node{Val: 2}
+	three := &Node{Val: 3}
+	four := &Node{Val: 4}
 
-	r := make([]uint32, math.MaxUint32)
-	r[0] = 1
+	one.Neighbors = append(one.Neighbors, two)
+	one.Neighbors = append(one.Neighbors, four)
 
-	fmt.Println(r[0])
+	two.Neighbors = append(two.Neighbors, one)
+	two.Neighbors = append(two.Neighbors, three)
+
+	three.Neighbors = append(three.Neighbors, two)
+	three.Neighbors = append(three.Neighbors, four)
+
+	four.Neighbors = append(four.Neighbors, one)
+	four.Neighbors = append(four.Neighbors, three)
+
+	//r := cloneGraph(one)
+
+	//return r
 }
