@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 )
 
@@ -15,9 +14,9 @@ func (s *Stack) Push(x byte) {
 
 func (s *Stack) Pop() byte {
 	l := len(s.data)
-	v := s.data[l - 1]
+	v := s.data[l-1]
 
-	s.data = s.data[:l - 1]
+	s.data = s.data[:l-1]
 
 	return v
 }
@@ -29,7 +28,7 @@ func (s *Stack) Empty() bool {
 func (s *Stack) Top() byte {
 	l := len(s.data)
 
-	return s.data[l - 1]
+	return s.data[l-1]
 }
 
 type NumStack struct {
@@ -42,9 +41,9 @@ func (s *NumStack) Push(x int) {
 
 func (s *NumStack) Pop() int {
 	l := len(s.data)
-	v := s.data[l - 1]
+	v := s.data[l-1]
 
-	s.data = s.data[:l - 1]
+	s.data = s.data[:l-1]
 
 	return v
 }
@@ -52,7 +51,7 @@ func (s *NumStack) Pop() int {
 func (s *NumStack) Top() int {
 	l := len(s.data)
 
-	return s.data[l - 1]
+	return s.data[l-1]
 }
 
 func reverse(s string) string {
@@ -106,13 +105,4 @@ func decodeString(s string) string {
 	}
 
 	return reverse(result)
-}
-
-func main() {
-	//s := "3[a]2[bc]"
-	//s := "3[a2[c]]"
-	s := "2[abc]3[cd]ef"
-	//s := "abc3[cd]xyz"
-	//s := "11[x]c"
-	fmt.Println(decodeString(s))
 }
