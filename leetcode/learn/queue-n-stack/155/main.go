@@ -1,4 +1,4 @@
-package _55
+package main
 
 type MinStack struct {
 	data []int
