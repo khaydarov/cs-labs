@@ -33,6 +33,10 @@ var testCases = []struct {
 		[]int{2, 2, 2, 2, 2},
 		2,
 	},
+	{
+		[]int{1, 3, 4, 2, 1},
+		1,
+	},
 }
 
 func TestSolution(t *testing.T) {
