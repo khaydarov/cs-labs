@@ -35,10 +35,15 @@
 
 ### Binary Tree
 
-| Problem                                                                                                                             | Difficulty | Topic                                         | Solution                                                                                           | Note                                          |
-|-------------------------------------------------------------------------------------------------------------------------------------|------------|-----------------------------------------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| [94. Binary InOrder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal)                                         | Easy       | Binary Tree                                   | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search-tree/94)  |                                               |
-| [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree)                                                                 | Easy       | Binary Tree                                   | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search-tree/101) | Use helper to compare left and right branches |
+| Problem                                                                                                    | Difficulty | Topic            | Solution                                                                                    | Note                                          |
+|------------------------------------------------------------------------------------------------------------|------------|------------------|---------------------------------------------------------------------------------------------|-----------------------------------------------|
+| [94. Binary InOrder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal)                | Easy       | Binary Tree      | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-tree/94)  |                                               |
+| [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree)                                        | Easy       | Binary Tree      | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-tree/101) | Use helper to compare left and right branches |
+| [250. Count Univalue Subtrees](https://leetcode.com/problems/count-univalue-subtrees/)                     | Medium     | Binary Tree, DFS | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-tree/250) | Try to solve in linear time complexity        |
+| [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) | Medium     | Binary Tree, BFS | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-tree/102) |                                               |
+| [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/binary-tree-level-order-traversal/)      | Easy       | Binary Tree      | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-tree/104) |                                               |
+| [112. Path Sum](https://leetcode.com/problems/path-sum/)                                                   | Easy       | Binary Tree      | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-tree/112) |                                               |
+
 
 ### HashTable
 
