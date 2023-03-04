@@ -1,10 +1,9 @@
 package main
 
-import "fmt"
-
 type TreeNode struct {
-	Val 		int
-	Left, Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 type Queue struct {
@@ -48,7 +47,7 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 
 		root := &TreeNode{Val: front}
 		root.Left = buildNode(inorder[:divider])
-		root.Right = buildNode(inorder[divider + 1:])
+		root.Right = buildNode(inorder[divider+1:])
 
 		return root
 	}
@@ -66,10 +65,4 @@ func findInArray(arr []int, target int) int {
 	}
 
 	return -1
-}
-
-func main() {
-	r := buildTree([]int{3, 9, 20, 15, 7}, []int{9, 3, 15, 20, 7})
-	//r := buildTree([]int{-1}, []int{-1})
-	fmt.Println(r)
 }

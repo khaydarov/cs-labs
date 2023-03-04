@@ -1,10 +1,9 @@
 package main
 
-import "fmt"
-
 type TreeNode struct {
-	Val 		int
-	Left, Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 type Stack struct {
@@ -20,8 +19,8 @@ func (s *Stack) Pop() int {
 		return -1
 	}
 
-	top := s.data[len(s.data) - 1]
-	s.data = s.data[:len(s.data) - 1]
+	top := s.data[len(s.data)-1]
+	s.data = s.data[:len(s.data)-1]
 
 	return top
 }
@@ -49,7 +48,7 @@ func buildTree(inorder []int, postorder []int) *TreeNode {
 		divider := findInArray(inorder, top)
 
 		root := &TreeNode{Val: top}
-		root.Right = buildNode(inorder[divider + 1:])
+		root.Right = buildNode(inorder[divider+1:])
 		root.Left = buildNode(inorder[:divider])
 
 		return root
@@ -68,10 +67,4 @@ func findInArray(arr []int, target int) int {
 	}
 
 	return -1
-}
-
-func main() {
-	r := buildTree([]int{9, 3, 15, 20, 7}, []int{9, 15, 7, 20, 3})
-	//r := buildTree([]int{-1}, []int{-1})
-	fmt.Println(r)
 }
