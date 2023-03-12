@@ -6,46 +6,71 @@ import (
 )
 
 type TreeNode struct {
-	Val 	int
-	Left 	*TreeNode
-	Right 	*TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 type LinkedList struct {
-	Val 	string
-	Next 	*LinkedList
+	Val  string
+	Next *LinkedList
+	Prev *LinkedList
 }
 
 type Queue struct {
-	data *LinkedList
+	head *LinkedList
+	tail *LinkedList
+	size int
 }
 
-func (q *Queue) Enqueue(x string) {
-	if q.data == nil {
-		q.data = &LinkedList{Val: x}
-	} else {
-		current := q.data
-		for current.Next != nil {
-			current = current.Next
-		}
+func (q *Queue) Enqueue(b string) {
+	item := &LinkedList{Val: b}
+	item.Next = q.tail
+	item.Prev = q.tail.Prev
 
-		current.Next = &LinkedList{Val: x}
-	}
+	q.tail.Prev.Next = item
+	q.tail.Prev = item
+	q.size++
 }
 
 func (q *Queue) Dequeue() string {
-	if q.data == nil {
+	if q.Size() == 0 {
 		return ""
 	}
 
-	front := q.data.Val
-	q.data = q.data.Next
+	front := q.head.Next
+	front.Prev.Next = front.Next
+	front.Next.Prev = front.Prev
 
-	return front
+	q.size--
+
+	return front.Val
 }
 
-func (q *Queue) Empty() bool {
-	return q.data == nil
+func (q *Queue) Size() int {
+	return q.size
+}
+
+func (q *Queue) Println() {
+	current := q.head.Next
+	for current != q.tail {
+		fmt.Println(current.Val)
+		current = current.Next
+	}
+}
+
+func CreateQueue() Queue {
+	head := &LinkedList{}
+	tail := &LinkedList{}
+
+	head.Next = tail
+	tail.Prev = head
+
+	return Queue{
+		head,
+		tail,
+		0,
+	}
 }
 
 type Codec struct {
@@ -57,55 +82,51 @@ func Constructor() Codec {
 
 // Serializes a tree to a single string.
 func (this *Codec) serialize(root *TreeNode) string {
-	if root == nil {
-		return ""
-	}
+	q := CreateQueue()
 
-	var result string
-
-	var traverser func (node *TreeNode)
-	traverser = func (node *TreeNode) {
+	var helper func(node *TreeNode)
+	helper = func(node *TreeNode) {
 		if node == nil {
-			result += "#"
-			result += "."
+			q.Enqueue("#")
 			return
 		}
 
-		result += strconv.Itoa(node.Val)
-		result += "."
+		q.Enqueue(strconv.Itoa(node.Val))
 
-		traverser(node.Left)
-		traverser(node.Right)
+		helper(node.Left)
+		helper(node.Right)
 	}
 
-	traverser(root)
+	helper(root)
+
+	var result string
+	for q.Size() > 0 {
+		result += q.Dequeue()
+		result += "."
+	}
 
 	return result
 }
 
 // Deserializes your encoded data to tree.
 func (this *Codec) deserialize(data string) *TreeNode {
-	if data == "" {
-		return nil
-	}
+	q := CreateQueue()
 
-
-	q := Queue{}
 	i := 0
 	for i < len(data) {
-		k := ""
+		var val string
 		for i < len(data) && data[i] != '.' {
-			k += string(data[i])
+			val += string(data[i])
 			i++
 		}
 
-		q.Enqueue(k)
+		q.Enqueue(val)
 		i++
 	}
 
-	var traverser func (node *TreeNode) *TreeNode
-	traverser = func (node *TreeNode) *TreeNode {
-		if q.Empty() {
+	var treeBuilder func() *TreeNode
+	treeBuilder = func() *TreeNode {
+		if q.Size() == 0 {
 			return nil
 		}
 
@@ -114,47 +135,14 @@ func (this *Codec) deserialize(data string) *TreeNode {
 			return nil
 		}
 
-		value, _ := strconv.Atoi(front)
+		val, _ := strconv.Atoi(front)
 
-		node.Val = value
-		node.Left = traverser(&TreeNode{})
-		node.Right = traverser(&TreeNode{})
+		node := &TreeNode{Val: val}
+		node.Left = treeBuilder()
+		node.Right = treeBuilder()
 
 		return node
 	}
 
-
-	root := traverser(&TreeNode{})
-
-	return root
+	return treeBuilder()
 }
-
-func main() {
-	zero := &TreeNode{0, nil, nil}
-	one := &TreeNode{-123, nil, nil}
-	two := &TreeNode{-32, nil, nil}
-	three := &TreeNode{31, nil, nil}
-	four := &TreeNode{4, nil, nil}
-	five := &TreeNode{5, nil, nil}
-	six := &TreeNode{6, nil, nil}
-	seven := &TreeNode{7, nil, nil}
-
-	zero.Left = one
-
-	one.Left = two
-	one.Right = three
-
-	two.Left = four
-	two.Right = five
-
-	three.Left = six
-	three.Right = seven
-
-	codec := Constructor()
-	r := codec.serialize(one)
-	fmt.Println(r)
-
-	d := codec.deserialize(r)
-	fmt.Println(d, d.Left, d.Right)
-}
-

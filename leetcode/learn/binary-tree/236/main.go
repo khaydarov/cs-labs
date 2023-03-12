@@ -1,9 +1,9 @@
 package main
 
 type TreeNode struct {
-	Val 	int
-	Left 	*TreeNode
-	Right 	*TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 // TC: O(N)
@@ -48,7 +48,7 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
 	var lca *TreeNode
 	var traverser func(root *TreeNode) bool
-	
+
 	traverser = func(root *TreeNode) bool {
 		if root == nil {
 			return false
@@ -71,11 +71,11 @@ func lowestCommonAncestor1(root, p, q *TreeNode) *TreeNode {
 			m = 1
 		}
 
-		if l + r + m >= 2 {
+		if l+r+m >= 2 {
 			lca = root
 		}
 
-		return l + r + m > 0
+		return l+r+m > 0
 	}
 
 	traverser(root)
@@ -97,8 +97,8 @@ func (s *Stack) Pop() *TreeNode {
 	}
 
 	l := len(s.data)
-	top := s.data[l - 1]
-	s.data = s.data[:l - 1]
+	top := s.data[l-1]
+	s.data = s.data[:l-1]
 
 	return top
 }
@@ -108,7 +108,7 @@ func (s *Stack) Empty() bool {
 }
 
 type Set struct {
-	data []*TreeNode
+	data    []*TreeNode
 	hashMap map[*TreeNode]bool
 }
 
@@ -172,8 +172,8 @@ func lowestCommonAncestor3(root, p, q *TreeNode) *TreeNode {
 	first = make(map[*TreeNode]int)
 	height = make(map[*TreeNode]int)
 
-	var dfs func (node *TreeNode, depth int)
-	dfs = func (node *TreeNode, depth int) {
+	var dfs func(node *TreeNode, depth int)
+	dfs = func(node *TreeNode, depth int) {
 		if node == nil {
 			return
 		}
@@ -182,12 +182,12 @@ func lowestCommonAncestor3(root, p, q *TreeNode) *TreeNode {
 		height[node] = depth
 
 		if node.Left != nil {
-			dfs(node.Left, depth + 1)
+			dfs(node.Left, depth+1)
 			order = append(order, node)
 		}
 
 		if node.Right != nil {
-			dfs(node.Right, depth + 1)
+			dfs(node.Right, depth+1)
 			order = append(order, node)
 		}
 	}
@@ -219,28 +219,3 @@ func lowestCommonAncestor3(root, p, q *TreeNode) *TreeNode {
 
 	return minNode
 }
-
-func main() {
-	zero := &TreeNode{0, nil, nil}
-	one := &TreeNode{1, nil, nil}
-	two := &TreeNode{2, nil, nil}
-	three := &TreeNode{3, nil, nil}
-	four := &TreeNode{4, nil, nil}
-	five := &TreeNode{5, nil, nil}
-	six := &TreeNode{6, nil, nil}
-	seven := &TreeNode{7, nil, nil}
-
-	zero.Left = one
-
-	one.Left = two
-	one.Right = three
-
-	two.Left = four
-	two.Right = five
-
-	three.Left = six
-	three.Right = seven
-	//fmt.Println(lowestCommonAncestor(zero, two, three))
-	lowestCommonAncestor2(nil, two, three)
-}
-

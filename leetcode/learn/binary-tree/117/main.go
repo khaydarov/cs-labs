@@ -1,10 +1,10 @@
 package main
 
 type Node struct {
-	Val 	int
-	Left 	*Node
-	Right 	*Node
-	Next 	*Node
+	Val   int
+	Left  *Node
+	Right *Node
+	Next  *Node
 }
 
 type Queue struct {
@@ -42,7 +42,9 @@ func (q *Queue) Dequeue() *Node {
 	return front
 }
 
-func connect(root *Node) *Node {
+// TC: O(N)
+// SC: O(N)
+func connect1(root *Node) *Node {
 	if root == nil {
 		return root
 	}
@@ -65,7 +67,6 @@ func connect(root *Node) *Node {
 				q.Enqueue(current.Right)
 			}
 
-
 			nodesToConnect.Enqueue(current)
 		}
 
@@ -78,7 +79,49 @@ func connect(root *Node) *Node {
 	return root
 }
 
-func main() {
-	connect(nil)
-}
+// TC: O(N)
+// SC: O(1)
+func connect(root *Node) *Node {
+	var leftMost *Node
+	leftMost = root
 
+	for leftMost != nil {
+		var head *Node
+		var prev *Node
+
+		head = leftMost
+		leftMost = nil
+
+		for head != nil {
+			if head.Left != nil {
+				if leftMost == nil {
+					leftMost = head.Left
+				}
+
+				if prev == nil {
+					prev = head.Left
+				} else {
+					prev.Next = head.Left
+					prev = prev.Next
+				}
+			}
+
+			if head.Right != nil {
+				if leftMost == nil {
+					leftMost = head.Right
+				}
+
+				if prev == nil {
+					prev = head.Right
+				} else {
+					prev.Next = head.Right
+					prev = prev.Next
+				}
+			}
+
+			head = head.Next
+		}
+	}
+
+	return root
+}
