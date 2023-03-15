@@ -36,6 +36,9 @@
 | [235. Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree) | Medium     | Binary Tree                                   | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search-tree/235) |                                               |
 | [450. Delete Node in a BST](https://leetcode.com/problems/delete-node-in-a-bst)                                                     | Medium     | Binary Search Tree                            | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search-tree/450) | Just need to memorize algorithm               |
 | [703. Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream)                               | Medium     | Binary Search Tree, Heap, Binary Search, Heap | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search-tree/703) | Count right height, it is Kth largest element |
+| [285. Inorder Successor in BST](https://leetcode.com/problems/inorder-successor-in-bst)                                             | Medium     | Binary Search Tree                            | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search-tree/285) | Best solution is to go from root              |
+| [510. Inorder Successor in BST II](https://leetcode.com/problems/inorder-successor-in-bst-ii)                                       | Medium     | Binary Search Tree                            | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search-tree/510) |                                               |
+
 
 ### Binary Tree
 
