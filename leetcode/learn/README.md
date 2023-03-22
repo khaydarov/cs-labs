@@ -38,7 +38,8 @@
 | [703. Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream)                               | Medium     | Binary Search Tree, Heap, Binary Search, Heap | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search-tree/703) | Count right height, it is Kth largest element |
 | [285. Inorder Successor in BST](https://leetcode.com/problems/inorder-successor-in-bst)                                             | Medium     | Binary Search Tree                            | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search-tree/285) | Best solution is to go from root              |
 | [510. Inorder Successor in BST II](https://leetcode.com/problems/inorder-successor-in-bst-ii)                                       | Medium     | Binary Search Tree                            | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search-tree/510) |                                               |
-
+| [701. Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/)                            | Easy       | Binary Tree                                   | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search-tree/701) |                                               |
+| [108. Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)        | Easy       | Binary Tree                                   | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search-tree/108) |                                               |
 
 ### Binary Tree
 
