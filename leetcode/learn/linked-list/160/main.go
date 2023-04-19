@@ -1,4 +1,4 @@
-package _60
+package main
 
 import "fmt"
 
@@ -153,20 +153,4 @@ func Reverse(l *ListNode) *ListNode {
 	l = prev
 
 	return l
-}
-
-func main() {
-	common := &ListNode{2, nil}
-
-	headA := &ListNode{1, nil}
-	headA.Add(9)
-	headA.Add(1)
-	headA.AddNode(common)
-	headA.Add(4)
-
-	headB := &ListNode{3, nil}
-	headB.AddNode(common)
-
-	ans := getIntersectionNode(headA, headB)
-	fmt.Println(ans)
 }
