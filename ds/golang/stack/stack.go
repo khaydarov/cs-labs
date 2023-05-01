@@ -1,4 +1,4 @@
-package main
+package stack
 
 // Stack that stores data in array
 // LIFO data structure
@@ -37,4 +37,8 @@ func (s *Stack) Pop() bool {
 // Empty returns true if slack is empty
 func (s *Stack) Empty() bool {
 	return len(s.data) == 0
+}
+
+func Construct() *Stack {
+	return &Stack{}
 }

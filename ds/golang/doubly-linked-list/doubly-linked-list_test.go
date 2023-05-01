@@ -1,4 +1,4 @@
-package main
+package doubly_linked_list
 
 import (
 	"testing"

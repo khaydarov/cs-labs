@@ -4,10 +4,10 @@ import "fmt"
 
 // Node — Linked list implementation
 // Time complexity
-//  - Access: O(N) | O(N)
-//  - Search: O(N) | O(N)
-//  - Insertion: O(1) | O(N)
-//  - Deletion: O(1) | O(1)
+//   - Access: O(N) | O(N)
+//   - Search: O(N) | O(N)
+//   - Insertion: O(1) | O(N)
+//   - Deletion: O(1) | O(1)
 //
 // Space complexity: O(N)
 type Node struct {

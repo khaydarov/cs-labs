@@ -1,4 +1,4 @@
-package main
+package set
 
 import (
 	"reflect"
@@ -27,7 +27,7 @@ func TestSet(t *testing.T) {
 	s.Add(1)
 	s.Add(2)
 	s.Add(1)
-	
+
 	expect := []int{1, 2}
 	if !reflect.DeepEqual(s.Values(), expect) {
 		t.Errorf("Union result is not correct")

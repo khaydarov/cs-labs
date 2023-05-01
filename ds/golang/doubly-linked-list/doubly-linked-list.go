@@ -1,13 +1,13 @@
-package main
+package doubly_linked_list
 
 import "fmt"
 
 // Node
 // Time complexity
-//  - Access: O(N) | O(N)
-//  - Search: O(N) | O(N)
-//  - Insertion: O(1) | O(1)
-//  - Deletion: O(1) | O(1)
+//   - Access: O(N) | O(N)
+//   - Search: O(N) | O(N)
+//   - Insertion: O(1) | O(1)
+//   - Deletion: O(1) | O(1)
 //
 // Space complexity: O(N)
 type Node struct {

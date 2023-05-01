@@ -1,4 +1,4 @@
-package main
+package circular_queue
 
 import (
 	"reflect"
