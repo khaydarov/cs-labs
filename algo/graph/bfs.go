@@ -4,11 +4,11 @@ import "fmt"
 
 // Set structure
 type Set struct {
-	data 	[]int
-	length 	int
+	data   []int
+	length int
 }
 
-// Adds new element to the set
+// Add Adds new element to the set
 // Time complexity: O(N)
 // Note: We can use balanced tree to search with O(Log N)
 func (s *Set) Add(x int) bool {
@@ -22,7 +22,7 @@ func (s *Set) Add(x int) bool {
 	return true
 }
 
-// Checks if Set contains element
+// Has Checks if Set contains element
 func (s *Set) Has(x int) bool {
 	for _, v := range s.data {
 		if v == x {
@@ -34,11 +34,11 @@ func (s *Set) Has(x int) bool {
 }
 
 type CircularQueue struct {
-	data 		[]int
-	head 		int
-	tail 		int
-	length 		int
-	capacity 	int
+	data     []int
+	head     int
+	tail     int
+	length   int
+	capacity int
 }
 
 // EnQueue adds new element to the queue (to the end)
@@ -113,7 +113,7 @@ func Constructor(k int) CircularQueue {
 	}
 }
 
-// Breadth First Search
+// BFS1 Breadth First Search
 // TC: O(V + E), where V is the number of vertices and E is the number of edges in the graph
 func BFS1(graph [][]int, root, target int) int {
 	q := Constructor(10)
@@ -191,6 +191,6 @@ func main() {
 		{6, 7},
 	}
 
-	r := BFS(graph,1, 6)
+	r := BFS(graph, 1, 6)
 	fmt.Println(r)
 }

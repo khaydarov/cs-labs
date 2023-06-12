@@ -135,3 +135,12 @@
 | [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/)                   | Easy       | Array, Dynamic Programming              | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/recursion-i/119) |         |
 | [779. K-th Symbol in Grammar](https://leetcode.com/problems/k-th-symbol-in-grammar/)              | Medium     | Array                                   | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/recursion-i/779) | Repeat! |
 | [95. Unique Binary Search Trees II](https://leetcode.com/problems/unique-binary-search-trees-ii/) | Medium     | Array, Binary Search Tree, Backtracking | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/recursion-i/95)  | Repeat! |
+| [372. Super Pow](https://leetcode.com/problems/super-pow/)                                        | Medium     | Math                                    | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/recursion-i/372) | Repeat! |
+
+### Sorting
+
+| Problem                                                                        | Difficulty | Topic          | Solution                                                                                | Note    |
+|--------------------------------------------------------------------------------|------------|----------------|-----------------------------------------------------------------------------------------|---------|
+| [75. Sort Colors](https://leetcode.com/problems/sort-colors/)                  | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/75)  | Repeat! |
+| [147. Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/147) |         |
+| [912. Sort an Array](https://leetcode.com/problems/sort-an-array/)             | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/912) | Repeat! |
