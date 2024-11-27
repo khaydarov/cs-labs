@@ -101,7 +101,7 @@
 | [350. Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)                                                   | Easy       | Array, Hashmap              | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search/350) |                                                                                    |
 | [167. Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)                                           | Medium     | Two pointers                | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search/167) |                                                                                    |
 | [658. Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)                                                               | Medium     | Binary search, Two pointers | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search/658) | Very tricky. Easiest solution is to using two pointers or BS to find left boundary |
-
+| [74. Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix)                                                               | Medium     | Binary search, Two pointers | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-search/74) | Use Binary search to find row and then col |
 
 ### Linked List
 
@@ -144,3 +144,10 @@
 | [75. Sort Colors](https://leetcode.com/problems/sort-colors/)                  | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/75)  | Repeat! |
 | [147. Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/147) |         |
 | [912. Sort an Array](https://leetcode.com/problems/sort-an-array/)             | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/912) | Repeat! |
+
+
+### Heap
+
+| Problem                                                                        | Difficulty | Topic          | Solution                                                                                | Note    |
+|--------------------------------------------------------------------------------|------------|----------------|-----------------------------------------------------------------------------------------|---------|
+| [378. Kth smallest Element in Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix)                  | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/heap/378)  | Repeat! |

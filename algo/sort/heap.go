@@ -1,104 +1,44 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import "fmt"
 
-type MinHeap struct {
-	data []int
-	size int
-	cap  int
-}
+func maxHeapify(arr *[]int, i int, heapSize int) {
+	left := 2*i + 1
+	right := 2*i + 2
+	largest := i
 
-func (h *MinHeap) Left(i int) int {
-	return 2 * i + 1
-}
-
-func (h *MinHeap) Parent(i int) int {
-	return (i - 1) / 2
-}
-
-func (h *MinHeap) Right(i int) int {
-	return 2 * i + 2
-}
-
-func (h *MinHeap) Add(x int) {
-	if h.size == h.cap {
-		return
+	if left < heapSize && (*arr)[left] > (*arr)[largest] {
+		largest = left
 	}
 
-	h.size++
-	i := h.size - 1
-	h.data[i] = x
+	if right < heapSize && (*arr)[right] > (*arr)[largest] {
+		largest = right
+	}
 
-	for i != 0 && h.data[h.Parent(i)] > h.data[i] {
-		h.data[h.Parent(i)], h.data[i] = h.data[i], h.data[h.Parent(i)]
-		i = h.Parent(i)
+	if largest != i {
+		(*arr)[i], (*arr)[largest] = (*arr)[largest], (*arr)[i]
+		maxHeapify(arr, largest, heapSize)
 	}
 }
 
-func (h *MinHeap) GetMin() int {
-	if h.size == 0 {
-		return math.MinInt32
-	}
-
-	return h.data[0]
-}
-
-func (h *MinHeap) Heapify(i int) {
-	left := h.Left(i)
-	right := h.Right(i)
-	smallest := i
-
-	if left < h.size && h.data[left] < h.data[smallest] {
-		smallest = left
-	}
-
-	if right < h.size && h.data[right] < h.data[smallest] {
-		smallest = right
-	}
-
-	if i != smallest {
-		h.data[i], h.data[smallest] = h.data[smallest], h.data[i]
-		h.Heapify(smallest)
-	}
-}
-
-func (h *MinHeap) ExtractMin() {
-	if h.size == 0 {
-		return
-	}
-
-	h.data[0] = h.data[h.size - 1]
-	h.size--
-
-	h.Heapify(0)
-}
-
-// HeapSort sorting algorithm implementation
-//
-// TC: O(N log N)
-// SC: O(N log N)
-func HeapSort(arr *[]int) {
+// Complexity: best | average | worst
+// TC: O(NlogN) | O(NlogN) | O(NlogN)
+// SC: O(1) | O(1) | O(1)
+func heapSort(arr *[]int) {
 	n := len(*arr)
 
-	h := MinHeap{
-		data: *arr,
-		size: n,
-		cap: n,
+	for i := n/2 - 1; i >= 0; i-- {
+		maxHeapify(arr, i, n)
 	}
 
-	h.Heapify(0)
-
-	for i := 0; i < n; i++ {
-		(*arr)[i] = h.GetMin()
-		h.ExtractMin()
+	for i := n - 1; i >= 0; i-- {
+		(*arr)[0], (*arr)[i] = (*arr)[i], (*arr)[0]
+		maxHeapify(arr, 0, i)
 	}
 }
 
 func main() {
 	arr := []int{5, 4, 3, 1, 2, 9}
-	HeapSort(&arr)
+	heapSort(&arr)
 	fmt.Println(arr)
 }

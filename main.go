@@ -2,88 +2,170 @@ package main
 
 import (
 	"fmt"
-	"math"
+	"sort"
 )
 
-func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
-	if len(nums1) > len(nums2) {
-		return findMedianSortedArrays(nums2, nums1)
+type Elem struct {
+	Row      int
+	Soldiers int
+}
+
+func Construct(capacity int) Heap {
+	return Heap{
+		size:     0,
+		capacity: capacity,
+		data:     make([]Elem, capacity),
+	}
+}
+
+type Heap struct {
+	size     int
+	capacity int
+	data     []Elem
+}
+
+// Left Returns index of left node
+func (h *Heap) Left(i int) int {
+	return 2*i + 1
+}
+
+// Right Returns index of right node
+func (h *Heap) Right(i int) int {
+	return 2*i + 2
+}
+
+// Parent Returns index of parent node
+func (h *Heap) Parent(i int) int {
+	return (i - 1) / 2
+}
+
+// Insert adds new item to heap
+func (h *Heap) Insert(k Elem) {
+	if h.size == h.capacity {
+		return
 	}
 
-	total := len(nums1) + len(nums2)
-	half := (total + 1) / 2
+	h.size++
+	i := h.size - 1
+	h.data[i] = k
 
-	var Aleft, Aright float64
-	var Bleft, Bright float64
+	for i != 0 && h.data[h.Parent(i)].Soldiers < h.data[i].Soldiers {
+		h.data[h.Parent(i)], h.data[i] = h.data[i], h.data[h.Parent(i)]
+		i = h.Parent(i)
+	}
+}
 
-	low, high := 0, len(nums1)-1
-	for {
-		partitionX := (low + high) / 2
-		partitionY := half - partitionX - 2
+// Get Returns first heap element: min or max value
+func (h *Heap) Get() Elem {
+	if h.size <= 0 {
+		return Elem{}
+	}
 
-		if partitionX >= 0 {
-			Aleft = float64(nums1[partitionX])
-		} else {
-			Aleft = math.Inf(-1)
-		}
+	return h.data[0]
+}
 
-		if (partitionX + 1) < len(nums1) {
-			Aright = float64(nums1[partitionX+1])
-		} else {
-			Aright = math.Inf(1)
-		}
+// Heapify adjusts heap data
+func (h *Heap) Heapify(i int) {
+	left := h.Left(i)
+	right := h.Right(i)
 
-		if partitionY >= 0 {
-			Bleft = float64(nums2[partitionY])
-		} else {
-			Bleft = math.Inf(-1)
-		}
+	biggest := i
+	if left < h.size && h.data[left].Soldiers > h.data[biggest].Soldiers {
+		biggest = left
+	}
 
-		if (partitionY + 1) < len(nums2) {
-			Bright = float64(nums2[partitionY+1])
-		} else {
-			Bright = math.Inf(1)
-		}
+	if right < h.size && h.data[right].Soldiers > h.data[biggest].Soldiers {
+		biggest = right
+	}
 
-		fmt.Println(partitionX, partitionY, Aleft, Aright, Bleft, Bright)
+	if biggest != i {
+		h.data[i], h.data[biggest] = h.data[biggest], h.data[i]
+		h.Heapify(biggest)
+	}
+}
 
-		// partition is correct
-		if Aleft <= Bright && Bleft <= Aright {
-			// odd
-			if total%2 == 1 {
-				return max(Aleft, Bleft)
+func (h *Heap) Extract() Elem {
+	if h.size <= 0 {
+		return Elem{}
+	}
+
+	returnValue := h.data[0]
+	h.data[0] = h.data[h.size-1]
+	h.data[h.size-1] = Elem{}
+	h.size--
+
+	h.Heapify(0)
+
+	return returnValue
+}
+
+func (h *Heap) Size() int {
+	return h.size
+}
+
+// Approach 1
+// map[row] = count
+// m[0]=2
+// m[1]=4
+// m[2]=1
+// m[3]=2
+// m[4]=5
+// create a struct of struct { Row, Soldiers }
+// sort it
+// return first k rows
+//
+// TC: N for map and struct, NlogN for sorting
+// SC: N
+
+// Approach 2
+// 4 2 1 | 2 -> 2 2 1
+func kWeakestRows(mat [][]int, k int) []int {
+	m := make(map[int]Elem)
+	for i := 0; i < len(mat); i++ {
+		max := 0
+		for j := 0; j < len(mat[i]); j++ {
+			if mat[i][j] == 1 {
+				max++
 			}
-			// even
-			return (max(Aleft, Bleft) + min(Aright, Bright)) / 2
-		} else if Aleft > Bright {
-			high = partitionX - 1
-		} else {
-			low = partitionX + 1
+		}
+		m[i] = Elem{
+			Row:      i,
+			Soldiers: max,
 		}
 	}
 
-	return 1.0
-}
-
-func max(a, b float64) float64 {
-	if a > b {
-		return a
+	rows := make([]Elem, len(mat))
+	for i := 0; i < len(mat); i++ {
+		rows[i] = m[i]
 	}
-	return b
-}
 
-func min(a, b float64) float64 {
-	if a < b {
-		return a
+	sort.Slice(rows, func(i, j int) bool {
+		return rows[i].Soldiers < rows[j].Soldiers || (rows[i].Soldiers == rows[j].Soldiers && rows[i].Row < rows[j].Row)
+	})
+
+	var result []int
+	for i := 0; i < k; i++ {
+		result = append(result, rows[i].Row)
 	}
-	return b
+	return result
 }
 
 func main() {
-	r := findMedianSortedArrays(
-		[]int{},
-		[]int{1},
-	)
-
+	// input := [][]int{
+	// 	[]int{1, 1, 0, 0, 0},
+	// 	[]int{1, 1, 1, 1, 0},
+	// 	[]int{1, 0, 0, 0, 0},
+	// 	[]int{1, 1, 0, 0, 0},
+	// 	[]int{1, 1, 1, 1, 1},
+	// }
+	// k := 3
+	input := [][]int{
+		[]int{1, 0, 0, 0},
+		[]int{1, 1, 1, 1},
+		[]int{1, 0, 0, 0},
+		[]int{1, 0, 0, 0},
+	}
+	k := 2
+	r := kWeakestRows(input, k)
 	fmt.Println(r)
 }
