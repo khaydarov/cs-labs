@@ -145,9 +145,9 @@
 | [147. Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/147) |         |
 | [912. Sort an Array](https://leetcode.com/problems/sort-an-array/)             | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/912) | Repeat! |
 
-
 ### Heap
 
 | Problem                                                                        | Difficulty | Topic          | Solution                                                                                | Note    |
 |--------------------------------------------------------------------------------|------------|----------------|-----------------------------------------------------------------------------------------|---------|
 | [378. Kth smallest Element in Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix)                  | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/heap/378)  | Repeat! |
+| [253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)                  | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/heap/253)  | |

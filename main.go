@@ -2,26 +2,26 @@ package main
 
 import (
 	"fmt"
-	"sort"
+	"math"
 )
 
-type Elem struct {
-	Row      int
-	Soldiers int
+type Point struct {
+	Coords []int
+	Dist   float64
 }
 
 func Construct(capacity int) Heap {
 	return Heap{
 		size:     0,
 		capacity: capacity,
-		data:     make([]Elem, capacity),
+		data:     make([]Point, capacity),
 	}
 }
 
 type Heap struct {
 	size     int
 	capacity int
-	data     []Elem
+	data     []Point
 }
 
 // Left Returns index of left node
@@ -40,7 +40,7 @@ func (h *Heap) Parent(i int) int {
 }
 
 // Insert adds new item to heap
-func (h *Heap) Insert(k Elem) {
+func (h *Heap) Insert(k Point) {
 	if h.size == h.capacity {
 		return
 	}
@@ -49,16 +49,16 @@ func (h *Heap) Insert(k Elem) {
 	i := h.size - 1
 	h.data[i] = k
 
-	for i != 0 && h.data[h.Parent(i)].Soldiers < h.data[i].Soldiers {
+	for i != 0 && h.data[h.Parent(i)].Dist < h.data[i].Dist {
 		h.data[h.Parent(i)], h.data[i] = h.data[i], h.data[h.Parent(i)]
 		i = h.Parent(i)
 	}
 }
 
 // Get Returns first heap element: min or max value
-func (h *Heap) Get() Elem {
+func (h *Heap) Get() Point {
 	if h.size <= 0 {
-		return Elem{}
+		return Point{}
 	}
 
 	return h.data[0]
@@ -70,11 +70,11 @@ func (h *Heap) Heapify(i int) {
 	right := h.Right(i)
 
 	biggest := i
-	if left < h.size && h.data[left].Soldiers > h.data[biggest].Soldiers {
+	if left < h.size && h.data[left].Dist > h.data[biggest].Dist {
 		biggest = left
 	}
 
-	if right < h.size && h.data[right].Soldiers > h.data[biggest].Soldiers {
+	if right < h.size && h.data[right].Dist > h.data[biggest].Dist {
 		biggest = right
 	}
 
@@ -84,14 +84,14 @@ func (h *Heap) Heapify(i int) {
 	}
 }
 
-func (h *Heap) Extract() Elem {
+func (h *Heap) Extract() Point {
 	if h.size <= 0 {
-		return Elem{}
+		return Point{}
 	}
 
 	returnValue := h.data[0]
 	h.data[0] = h.data[h.size-1]
-	h.data[h.size-1] = Elem{}
+	h.data[h.size-1] = Point{}
 	h.size--
 
 	h.Heapify(0)
@@ -103,69 +103,51 @@ func (h *Heap) Size() int {
 	return h.size
 }
 
-// Approach 1
-// map[row] = count
-// m[0]=2
-// m[1]=4
-// m[2]=1
-// m[3]=2
-// m[4]=5
-// create a struct of struct { Row, Soldiers }
-// sort it
-// return first k rows
-//
-// TC: N for map and struct, NlogN for sorting
-// SC: N
+func calculateDistance(p []int) float64 {
+	return math.Sqrt(float64(p[0]*p[0] + p[1]*p[1]))
+}
 
-// Approach 2
-// 4 2 1 | 2 -> 2 2 1
-func kWeakestRows(mat [][]int, k int) []int {
-	m := make(map[int]Elem)
-	for i := 0; i < len(mat); i++ {
-		max := 0
-		for j := 0; j < len(mat[i]); j++ {
-			if mat[i][j] == 1 {
-				max++
+func kClosest(points [][]int, k int) [][]int {
+	if len(points) == k {
+		return points
+	}
+
+	heap := Construct(k)
+	for i := 0; i < len(points); i++ {
+		distance := calculateDistance(points[i])
+		if i < k {
+			heap.Insert(Point{
+				Coords: points[i],
+				Dist:   distance,
+			})
+		} else {
+			if distance < heap.Get().Dist {
+				heap.Extract()
+				heap.Insert(Point{
+					Coords: points[i],
+					Dist:   distance,
+				})
 			}
 		}
-		m[i] = Elem{
-			Row:      i,
-			Soldiers: max,
-		}
 	}
 
-	rows := make([]Elem, len(mat))
-	for i := 0; i < len(mat); i++ {
-		rows[i] = m[i]
-	}
+	fmt.Println(heap)
 
-	sort.Slice(rows, func(i, j int) bool {
-		return rows[i].Soldiers < rows[j].Soldiers || (rows[i].Soldiers == rows[j].Soldiers && rows[i].Row < rows[j].Row)
-	})
-
-	var result []int
+	result := make([][]int, k)
 	for i := 0; i < k; i++ {
-		result = append(result, rows[i].Row)
+		result[i] = heap.Extract().Coords
 	}
+
 	return result
 }
 
 func main() {
-	// input := [][]int{
-	// 	[]int{1, 1, 0, 0, 0},
-	// 	[]int{1, 1, 1, 1, 0},
-	// 	[]int{1, 0, 0, 0, 0},
-	// 	[]int{1, 1, 0, 0, 0},
-	// 	[]int{1, 1, 1, 1, 1},
-	// }
-	// k := 3
-	input := [][]int{
-		[]int{1, 0, 0, 0},
-		[]int{1, 1, 1, 1},
-		[]int{1, 0, 0, 0},
-		[]int{1, 0, 0, 0},
-	}
-	k := 2
-	r := kWeakestRows(input, k)
+	r := kClosest([][]int{
+		{3, 3},
+		{5, -1},
+		{-2, 4},
+		{1, 1},
+	}, 2)
+
 	fmt.Println(r)
 }
