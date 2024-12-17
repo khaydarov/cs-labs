@@ -2,7 +2,6 @@ package main
 
 import (
 	"container/heap"
-	"fmt"
 )
 
 type MinHeap []int
@@ -27,7 +26,6 @@ func (h *MinHeap) Pop() any {
 	old := *h
 	n := len(old)
 
-	fmt.Println(*h)
 	val := old[n-1]
 	*h = old[:n-1]
 
@@ -40,21 +38,15 @@ func connectSticks(sticks []int) int {
 		heap.Push(&minHeap, v)
 	}
 
-	fmt.Println(heap.Pop(&minHeap))
-	// cost := 0
-	// for len(minHeap) > 1 {
-	// 	x := heap.Pop(&minHeap)
-	// 	y := heap.Pop(&minHeap)
+	cost := 0
+	for len(minHeap) > 1 {
+		x := heap.Pop(&minHeap)
+		y := heap.Pop(&minHeap)
 
-	// 	s := x.(int) + y.(int)
-	// 	cost += s
-	// 	heap.Push(&minHeap, s)
-	// }
+		s := x.(int) + y.(int)
+		cost += s
+		heap.Push(&minHeap, s)
+	}
 
-	return 1
-}
-
-func main() {
-	connectSticks([]int{2, 4, 1})
-	// fmt.Println(r)
+	return cost
 }
