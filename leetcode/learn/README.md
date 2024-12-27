@@ -152,3 +152,4 @@
 | [378. Kth smallest Element in Sorted Matrix](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix) | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/heap/378)  | Repeat! |
 | [253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/heap/253)  | |
 | [1167. Minimum Cost To Connect Sticks](https://leetcode.com/problems/minimum-cost-to-connect-sticks) | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/heap/1167)  | |
+| [1642. Furthest Building You Can Reach](https://leetcode.com/problems/furthest-building-you-can-reach) | Medium     | Min Heap | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/heap/1642)  | |
