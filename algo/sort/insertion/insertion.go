@@ -1,13 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	arr := []int{3, 7, 4, 4, 6, 5, 8}
-	insertSort(&arr)
-
-	fmt.Println(arr)
-}
+package insertion
 
 // Complexity: best | average | worst
 // TC: O(n) | O(n^2) | O(n^2)
@@ -16,7 +7,7 @@ func insertSort(arr *[]int) {
 	sortedRangeIndex := 1
 
 	for sortedRangeIndex < len(*arr) {
-		if (*arr)[sortedRangeIndex - 1] > (*arr)[sortedRangeIndex] {
+		if (*arr)[sortedRangeIndex-1] > (*arr)[sortedRangeIndex] {
 			insertionIndex := findInsertionIndex(arr, (*arr)[sortedRangeIndex])
 
 			if insertionIndex == -1 {
@@ -47,7 +38,7 @@ func insertValueAtIndex(arr *[]int, insertAt int, insertFrom int) {
 	insertingValue := (*arr)[insertFrom]
 
 	for i := insertFrom; i > insertAt; i-- {
-		(*arr)[i] = (*arr)[i - 1]
+		(*arr)[i] = (*arr)[i-1]
 	}
 
 	(*arr)[insertAt] = insertingValue

@@ -1,9 +1,4 @@
-package main
-
-func main() {
-	arr := []int{5, 3, 4, 2}
-	bubbleSort(&arr)
-}
+package bubble
 
 // Complexity: best | average | worst
 // TC: O(n) | O(n^2) | O(n^2)

@@ -1,14 +1,9 @@
-package main
-
-func main() {
-	arr := []int{3, 7, 4, 4, 6, 5, 8}
-	selectSort(&arr)
-}
+package selection
 
 // Complexity: best | average | worst
 // TC: O(n) | O(n^2) | O(n^2)
 // SC: O(1) | O(1) | O(1)
-func selectSort(arr *[]int) {
+func SelectSort(arr *[]int) {
 	sortIndex := 0
 
 	for sortIndex < len(*arr) {

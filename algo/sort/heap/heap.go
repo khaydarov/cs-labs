@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package heap
 
 func maxHeapify(arr *[]int, i int, heapSize int) {
 	left := 2*i + 1
@@ -24,7 +22,7 @@ func maxHeapify(arr *[]int, i int, heapSize int) {
 // Complexity: best | average | worst
 // TC: O(NlogN) | O(NlogN) | O(NlogN)
 // SC: O(1) | O(1) | O(1)
-func heapSort(arr *[]int) {
+func HeapSort(arr *[]int) {
 	n := len(*arr)
 
 	for i := n/2 - 1; i >= 0; i-- {
@@ -35,10 +33,4 @@ func heapSort(arr *[]int) {
 		(*arr)[0], (*arr)[i] = (*arr)[i], (*arr)[0]
 		maxHeapify(arr, 0, i)
 	}
-}
-
-func main() {
-	arr := []int{5, 4, 3, 1, 2, 9}
-	heapSort(&arr)
-	fmt.Println(arr)
 }

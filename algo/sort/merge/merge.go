@@ -1,18 +1,9 @@
-package main
-
-import "fmt"
-
-func main() {
-	arr := []int{10,9,1,8}
-	mergeSort(&arr)
-
-	fmt.Println("result", arr)
-}
+package merge
 
 // Complexity: best | average | worst
 // TC: O(n log n) | O(n log n) | O(n log n)
 // SC: O(n) | O(n) | O(n)
-func mergeSort(arr *[]int) {
+func MergeSort(arr *[]int) {
 	length := len(*arr)
 
 	if length <= 1 {
@@ -26,13 +17,13 @@ func mergeSort(arr *[]int) {
 		left[i] = (*arr)[i]
 	}
 
-	right := make([]int, length - leftSize)
-	for i := 0; i < length - leftSize; i++ {
-		right[i] = (*arr)[length - i - 1]
+	right := make([]int, length-leftSize)
+	for i := 0; i < length-leftSize; i++ {
+		right[i] = (*arr)[length-i-1]
 	}
 
-	mergeSort(&left)
-	mergeSort(&right)
+	MergeSort(&left)
+	MergeSort(&right)
 	merge(arr, left, right)
 }
 
@@ -42,7 +33,6 @@ func merge(arr *[]int, left []int, right []int) {
 	targetIndex := 0
 	remaining := len(left) + len(right)
 
-	fmt.Println(left, right)
 	for remaining > 0 {
 		if leftIndex >= len(left) {
 			(*arr)[targetIndex] = right[RightIndex]

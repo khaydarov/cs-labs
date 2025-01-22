@@ -1,15 +1,12 @@
-package main
+package counting
 
-import "fmt"
-
+// K is the maximum value in the array
 // TC: O(N + K)
 // SC: O(K)
-func countingSort(arr []int) {
+func CountingSort(arr []int) {
 	maxValue := findMaxValue(arr)
 
-	var counts []int
-	counts = make([]int, maxValue+1)
-
+	counts := make([]int, maxValue+1)
 	for _, v := range arr {
 		counts[v]++
 	}
@@ -21,9 +18,7 @@ func countingSort(arr []int) {
 		startingIndex += count
 	}
 
-	var sortedArray []int
-	sortedArray = make([]int, len(arr))
-
+	sortedArray := make([]int, len(arr))
 	for i := 0; i < len(arr); i++ {
 		elem := arr[i]
 		sortedArray[counts[elem]] = elem
@@ -35,13 +30,11 @@ func countingSort(arr []int) {
 	}
 }
 
-func countingSortWithShifting(arr []int) {
+func CountingSortWithShifting(arr []int) {
 	shift := findMinValue(arr)
 	maxValue := findMaxValue(arr) - shift
 
-	var counts []int
-	counts = make([]int, maxValue+1)
-
+	counts := make([]int, maxValue+1)
 	for _, v := range arr {
 		counts[v-shift]++
 	}
@@ -53,9 +46,7 @@ func countingSortWithShifting(arr []int) {
 		startingIndex += count
 	}
 
-	var sortedArray []int
-	sortedArray = make([]int, len(arr))
-
+	sortedArray := make([]int, len(arr))
 	for i := 0; i < len(arr); i++ {
 		elem := arr[i]
 		sortedArray[counts[elem-shift]] = elem
@@ -87,11 +78,4 @@ func findMinValue(arr []int) int {
 	}
 
 	return minValue
-}
-
-func main() {
-	arr := []int{5, 3, 4, 4, 1, 9, -3, -2}
-	countingSortWithShifting(arr)
-
-	fmt.Println(arr)
 }
