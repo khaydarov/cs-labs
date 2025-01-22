@@ -144,6 +144,7 @@
 | [75. Sort Colors](https://leetcode.com/problems/sort-colors/)                  | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/75)  | Repeat! |
 | [147. Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/147) |         |
 | [912. Sort an Array](https://leetcode.com/problems/sort-an-array/)             | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/912) | Repeat! |
+| [164. Maximum Gap](https://leetcode.com/problems/maximum-gap/)             | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/164) |  |
 
 ### Heap
 
