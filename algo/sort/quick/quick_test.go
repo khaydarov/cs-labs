@@ -1,6 +1,9 @@
 package quick
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 var testCases = []struct {
 	array  []int
@@ -23,11 +26,9 @@ var testCases = []struct {
 func TestQuickSort(t *testing.T) {
 	for _, tc := range testCases {
 		quickSort(&tc.array)
-		for i := 0; i < len(tc.array); i++ {
-			if tc.array[i] != tc.expect[i] {
-				t.Errorf("Expected %v but got %v", tc.expect, tc.array)
-				break
-			}
+		if !reflect.DeepEqual(tc.array, tc.expect) {
+			t.Errorf("Expected %v but got %v", tc.expect, tc.array)
+			break
 		}
 	}
 }

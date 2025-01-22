@@ -1,6 +1,9 @@
 package counting
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 var testCases = []struct {
 	array  []int
@@ -18,16 +21,18 @@ var testCases = []struct {
 		array:  []int{5, 3, 4, 4, 1, 9, -3, -2, 5, 3, 4, 4, 1, 9, -3, -2},
 		expect: []int{-3, -3, -2, -2, 1, 1, 3, 3, 4, 4, 4, 4, 5, 5, 9, 9},
 	},
+	{
+		array:  []int{1, 2, 3, 0, -2, -3},
+		expect: []int{-3, -2, 0, 1, 2, 3},
+	},
 }
 
 func TestCountingSort(t *testing.T) {
 	for _, tc := range testCases {
 		CountingSortWithShifting(tc.array)
-		for i := 0; i < len(tc.array); i++ {
-			if tc.array[i] != tc.expect[i] {
-				t.Errorf("Expected %v but got %v", tc.expect, tc.array)
-				break
-			}
+		if !reflect.DeepEqual(tc.array, tc.expect) {
+			t.Errorf("Expected %v but got %v", tc.expect, tc.array)
+			break
 		}
 	}
 }
