@@ -1,8 +1,22 @@
 package main
 
-import (
-	"fmt"
-)
+func topKFrequent(nums []int, k int) []int {
+	m := make(map[int]int)
+	for _, v := range nums {
+		m[v]++
+	}
+	bucket := make([][]int, len(nums)+1)
+	for k, v := range m {
+		bucket[v] = append(bucket[v], k)
+	}
+	res := make([]int, 0)
+	for i := len(bucket) - 1; i >= 0 && len(res) < k; i-- {
+		if len(bucket[i]) > 0 {
+			res = append(res, bucket[i]...)
+		}
+	}
+	return res
+}
 
 type Num struct {
 	num       int
@@ -45,7 +59,7 @@ func partition(numList *NumList, left, right int) int {
 	return left
 }
 
-func topKFrequent(nums []int, k int) []int {
+func topKFrequent1(nums []int, k int) []int {
 	numMap := make(map[int]int)
 	for _, v := range nums {
 		numMap[v]++
@@ -57,10 +71,4 @@ func topKFrequent(nums []int, k int) []int {
 	}
 
 	return quickSelect(&numList, 0, len(numList)-1, k)
-}
-
-func main() {
-	nums := []int{1}
-	r := topKFrequent(nums, 1)
-	fmt.Println(r)
 }

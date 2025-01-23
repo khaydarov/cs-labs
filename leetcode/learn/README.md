@@ -145,6 +145,7 @@
 | [147. Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/) | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/147) |         |
 | [912. Sort an Array](https://leetcode.com/problems/sort-an-array/)             | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/912) | Repeat! |
 | [164. Maximum Gap](https://leetcode.com/problems/maximum-gap/)             | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/164) |  |
+| [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)             | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/347) | Bucket sorting |
 
 ### Heap
 
