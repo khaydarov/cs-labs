@@ -146,6 +146,7 @@
 | [912. Sort an Array](https://leetcode.com/problems/sort-an-array/)             | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/912) | Repeat! |
 | [164. Maximum Gap](https://leetcode.com/problems/maximum-gap/)             | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/164) |  |
 | [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)             | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/347) | Bucket sorting |
+| [2343. Query Kth Smallest Trimmed Number](https://leetcode.com/problems/query-kth-smallest-trimmed-number/description/)             | Medium     | Array, Sorting | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/sorting/2343) | Radix |
 
 ### Heap
 
