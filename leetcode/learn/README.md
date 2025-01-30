@@ -164,4 +164,7 @@
 |--------------------------------------------------------------------------------|------------|----------------|-----------------------------------------------------------------------------------------|---------|
 | [405. Convert a Number to Hexadecimal](https://leetcode.com/problems/convert-a-number-to-hexadecimal) | Easy     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/405)  |  |
 | [190. Reverse Bits](https://leetcode.com/problems/reverse-bits) | Easy     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/190)  |  |
-| [371. Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/description/) | Medium     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/371)  |  |
+| [371. Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) | Medium     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/371)  |  |
+| [201. Bitwise AND of Number Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/) | Medium     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/201)  |  |
+| [338. Counting Bits](https://leetcode.com/problems/counting-bits/) | Easy     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/338)  |  |
+| [136. Single Number](https://leetcode.com/problems/single-number/) | Easy     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/136)  |  |
