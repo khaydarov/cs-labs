@@ -168,3 +168,5 @@
 | [201. Bitwise AND of Number Range](https://leetcode.com/problems/bitwise-and-of-numbers-range/) | Medium     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/201)  |  |
 | [338. Counting Bits](https://leetcode.com/problems/counting-bits/) | Easy     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/338)  |  |
 | [136. Single Number](https://leetcode.com/problems/single-number/) | Easy     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/136)  |  |
+| [137. Single Number II](https://leetcode.com/problems/single-number-ii/) | Medium     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/137)  |  Repeat Approach 4 |
+| [260. Single Number III](https://leetcode.com/problems/single-number-iii/) | Medium     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/260)  |  Use two bitmask and diff |
