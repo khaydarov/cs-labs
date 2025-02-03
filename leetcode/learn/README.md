@@ -170,3 +170,4 @@
 | [136. Single Number](https://leetcode.com/problems/single-number/) | Easy     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/136)  |  |
 | [137. Single Number II](https://leetcode.com/problems/single-number-ii/) | Medium     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/137)  |  Repeat Approach 4 |
 | [260. Single Number III](https://leetcode.com/problems/single-number-iii/) | Medium     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/260)  |  Use two bitmask and diff |
+| [89. Gray Code](https://leetcode.com/problems/gray-code/) | Medium     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/89)  |  Repeat! |
