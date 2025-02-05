@@ -59,7 +59,6 @@
 | [236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)                                         | Medium     | Binary Tree      | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-tree/236) | Learn another solutions                       |
 | [297. Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)                                             | Medium     | Binary Tree      | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/binary-tree/297) |                                               |
 
-
 ### HashTable
 
 | Problem                                                                                  | Difficulty | Topic             | Solution                                                                                  | Note                                                                                         |
@@ -171,3 +170,9 @@
 | [137. Single Number II](https://leetcode.com/problems/single-number-ii/) | Medium     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/137)  |  Repeat Approach 4 |
 | [260. Single Number III](https://leetcode.com/problems/single-number-iii/) | Medium     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/260)  |  Use two bitmask and diff |
 | [89. Gray Code](https://leetcode.com/problems/gray-code/) | Medium     | Math, Bit | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/bit/89)  |  Repeat! |
+
+### Recursion II
+
+| Problem                                                                        | Difficulty | Topic          | Solution                                                                                | Note    |
+|--------------------------------------------------------------------------------|------------|----------------|-----------------------------------------------------------------------------------------|---------|
+| [77. Combinations](https://leetcode.com/problems/combinations) | Medium     | Backtracking | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/recursion-ii/66)  |  |
