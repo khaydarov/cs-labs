@@ -175,4 +175,5 @@
 
 | Problem                                                                        | Difficulty | Topic          | Solution                                                                                | Note    |
 |--------------------------------------------------------------------------------|------------|----------------|-----------------------------------------------------------------------------------------|---------|
-| [77. Combinations](https://leetcode.com/problems/combinations) | Medium     | Backtracking | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/recursion-ii/66)  |  |
+| [77. Combinations](https://leetcode.com/problems/combinations) | Medium     | Backtracking | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/recursion-ii/77)  |  |
+| [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses) | Medium     | Backtracking | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/recursion-ii/22)  |  Repeat! |
