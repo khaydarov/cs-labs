@@ -1,14 +1,9 @@
 package main
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 // PreOrder traversal algorithm: root-left-right
 // TC: O(N)
-func PreorderTraversal(root *TreeNode) []int {
+// SC: O(N)
+func PreorderTraversalRecursive(root *TreeNode) []int {
 	var result []int
 	var dfs func(node *TreeNode)
 

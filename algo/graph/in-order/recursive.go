@@ -1,14 +1,9 @@
 package main
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 // InOrder traversal algorithm: left-root-right
 // TC: O(N)
-func InorderTraversal(root *TreeNode) []int {
+// SC: O(N)
+func InorderTraversalRecursive(root *TreeNode) []int {
 	var result []int
 	if root == nil {
 		return result
