@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // TC: O(N), where N is the length of string
 // SC: O(1)
 func myAtoi(s string) int {
@@ -50,18 +48,18 @@ func myAtoi(s string) int {
 	for i := digitsStartPosition; i < len(s); i++ {
 		digit := int(s[i] - '0')
 
-		if sum > max / 10 || (sum == max / 10 && digit > 7) {
+		if sum > max/10 || (sum == max/10 && digit > 7) {
 			return max
 		}
 
-		if sum < min / 10 || (sum == min / 10 && digit > 8) {
+		if sum < min/10 || (sum == min/10 && digit > 8) {
 			return min
 		}
 
 		if sign == 1 {
-			sum = sum * 10 + digit
+			sum = sum*10 + digit
 		} else if sign == -1 {
-			sum = sum * 10 - digit
+			sum = sum*10 - digit
 		}
 	}
 
@@ -87,24 +85,4 @@ func trimLeadingSpaces(s string) string {
 	}
 
 	return s[i:]
-}
-
-func main() {
-	//s := "    -42"
-	//s := "    -4a2"
-	//s := "    4a2"
-	//s := "    --4a2"
-	//s := "    +-4a2"
-	//s := "    +-4a2"
-	//s := "    +42"
-	//s := "4193 with words"
-	//s := "words and 987"
-	//s := "-91283472332"
-	//s := "91283472332"
-	//s := ""
-	//s := "     "
-	//s := "- 3-3"
-	//s := "-2147483647"
-	s := "2147483648"
-	fmt.Println(myAtoi(s))
 }

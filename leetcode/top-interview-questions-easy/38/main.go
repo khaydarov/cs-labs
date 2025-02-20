@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 // TC: O(2^N)
 // SC: O(2^N)
 func countAndSay(n int) string {
@@ -38,9 +34,4 @@ func countHelper(s string) string {
 	result += string(countByte) + string(b)
 
 	return result
-}
-
-func main() {
-
-	fmt.Println(countAndSay(7))
 }

@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 // Naive
 // TC: O(Log3 N)
 // SC: O(1)
@@ -26,10 +22,5 @@ func isPowerOfThree1(n int) bool {
 // TC: O(1)
 // SC: O(1)
 func isPowerOfThree(n int) bool {
-	return n > 0 && 1162261467 % n == 0
-}
-
-func main() {
-	n := 20
-	fmt.Println(isPowerOfThree(n))
+	return n > 0 && 1162261467%n == 0
 }
