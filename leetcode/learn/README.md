@@ -186,3 +186,4 @@
 | [589. N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal) | Easy     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/n-ary-tree/589)  |  |
 | [590. N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal) | Easy     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/n-ary-tree/590)  |  |
 | [431. Encode N-ary Tree to Binary Tree](https://leetcode.com/problems/encode-n-ary-tree-to-binary-tree) | Hard     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/n-ary-tree/431)  |  |
+| [428. Serialize and Deserialize N-ary Tree](https://leetcode.com/problems/serialize-and-deserialize-n-ary-tree/) | Hard     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/n-ary-tree/428)  |  |
