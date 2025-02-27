@@ -193,3 +193,4 @@
 | Problem                                                                        | Difficulty | Topic          | Solution                                                                                | Note    |
 |--------------------------------------------------------------------------------|------------|----------------|-----------------------------------------------------------------------------------------|---------|
 | [677. Map Sum Pairs](https://leetcode.com/problems/map-sum-pairs) | Medium     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/trie/677)  |  |
+| [648. Replace Words](https://leetcode.com/problems/replace-words/) | Medium     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/trie/648)  |  |
