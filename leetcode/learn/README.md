@@ -194,3 +194,4 @@
 |--------------------------------------------------------------------------------|------------|----------------|-----------------------------------------------------------------------------------------|---------|
 | [677. Map Sum Pairs](https://leetcode.com/problems/map-sum-pairs) | Medium     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/trie/677)  |  |
 | [648. Replace Words](https://leetcode.com/problems/replace-words/) | Medium     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/trie/648)  |  |
+| [642. Design Search Autocomplete System](https://leetcode.com/problems/design-search-autocomplete-system/) | Hard     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/trie/642)  |  |
