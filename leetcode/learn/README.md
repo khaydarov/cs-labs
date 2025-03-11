@@ -197,3 +197,4 @@
 | [642. Design Search Autocomplete System](https://leetcode.com/problems/design-search-autocomplete-system/) | Hard     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/trie/642)  |  |
 | [211. Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) | Medium     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/trie/211)  |  |
 | [421. Maximum XOR of Two Numbers in an Array](https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/) | Medium     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/trie/421)  |  |
+| [212. Word Search II](https://leetcode.com/problems/word-search-ii/) | Hard     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/trie/212)  |  |
