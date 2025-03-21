@@ -1,41 +1,30 @@
 package main
 
 import (
-	"math/rand"
-	"time"
+	"flag"
+	"log"
+	"net/http"
 )
 
-func SetupCluster(count int) Cluster {
-	nodes := make([]*Node, count)
-	for i := 0; i < count; i++ {
-		nodes[i] = NewNode(i + 1)
-	}
+func runServer(port string) {
+	node := NewNode(NodeId(RandStringBytes(6)))
+	http.HandleFunc("/", node.handleIndex)
+	http.HandleFunc("/increment", node.handleIncrement)
+	http.HandleFunc("/value", node.handleGetValue)
+	http.HandleFunc("/merge", node.handleMerge)
+	http.HandleFunc("/add-peer", node.handleAddPeer)
+	http.HandleFunc("/peers", node.handleGetPeers)
 
-	for i := range nodes {
-		next := (i + 1) % len(nodes)
-		nodes[i].Peers = append(nodes[i].Peers, nodes[next])
-		nodes[next].Peers = append(nodes[next].Peers, nodes[i])
-	}
+	go node.gossipLoop()
 
-	return nodes
+	log.Println("Listening on port", port)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
 func main() {
-	cluster := SetupCluster(5)
+	var port string
+	flag.StringVar(&port, "port", "8080", "Node port")
+	flag.Parse()
 
-	for _, node := range cluster {
-		go node.Heartbeat()
-	}
-
-	cluster.Fail(2)
-	time.AfterFunc(time.Duration(rand.Intn(3)+2)*time.Second, func() {
-		cluster.Recover(2)
-	})
-
-	time.AfterFunc(time.Duration(3)*time.Second, func() {
-		cluster.Add(6)
-	})
-
-	cluster.Gossip()
-	time.Sleep(time.Minute)
+	runServer(port)
 }
