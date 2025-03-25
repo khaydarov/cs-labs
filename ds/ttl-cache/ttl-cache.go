@@ -16,9 +16,13 @@ type ttlCache struct {
 }
 
 func NewTTLCache() *ttlCache {
-	return &ttlCache{
+	cache := &ttlCache{
 		items: make(map[string]*item),
 	}
+
+	go cache.cleanUpLoop()
+
+	return cache
 }
 
 func (c *ttlCache) Set(key string, value interface{}, ttl time.Duration) {
@@ -58,4 +62,22 @@ func (c *ttlCache) Delete(key string) {
 	defer c.mu.Unlock()
 
 	delete(c.items, key)
+}
+
+func (c *ttlCache) cleanUpLoop() {
+	ticker := time.NewTicker(time.Millisecond * 100)
+	for range ticker.C {
+		c.invalidate()
+	}
+}
+
+func (c *ttlCache) invalidate() {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+
+	for key, item := range c.items {
+		if time.Now().After(item.expiration) {
+			delete(c.items, key)
+		}
+	}
 }

@@ -29,10 +29,10 @@ func TestTTLCache(t *testing.T) {
 
 	t.Run("expiration", func(t *testing.T) {
 		cache := NewTTLCache()
-		cache.Set("key1", "value1", time.Millisecond*50)
+		cache.Set("key1", "value1", time.Millisecond*500)
 
 		// Wait for expiration
-		time.Sleep(time.Millisecond * 100)
+		time.Sleep(time.Millisecond * 1000)
 
 		_, exists := cache.Get("key1")
 		if exists {
