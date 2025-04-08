@@ -1,7 +1,7 @@
 package main
 
 import (
-	"../../../../ds/golang/stack"
+	"github.com/emirpasic/gods/stacks/arraystack"
 )
 
 type ListNode struct {
@@ -67,13 +67,13 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 // TC: O(N1 + N2)
 // SC: O(N1 + N2)
 func addTwoNumbers1(l1 *ListNode, l2 *ListNode) *ListNode {
-	s1 := stack.Stack{}
+	s1 := arraystack.New()
 	for l1 != nil {
 		s1.Push(l1.Val)
 		l1 = l1.Next
 	}
 
-	s2 := stack.Stack{}
+	s2 := arraystack.New()
 	for l2 != nil {
 		s2.Push(l2.Val)
 		l2 = l2.Next
@@ -84,13 +84,13 @@ func addTwoNumbers1(l1 *ListNode, l2 *ListNode) *ListNode {
 	for !s1.Empty() || !s2.Empty() {
 		var a, b int
 		if !s1.Empty() {
-			a = s1.Top()
-			s1.Pop()
+			value, _ := s1.Pop()
+			a = value.(int)
 		}
 
 		if !s2.Empty() {
-			b = s2.Top()
-			s2.Pop()
+			value, _ := s2.Pop()
+			b = value.(int)
 		}
 
 		sum := a + b + carry
