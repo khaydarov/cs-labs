@@ -200,3 +200,10 @@
 | [212. Word Search II](https://leetcode.com/problems/word-search-ii/) | Hard     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/trie/212)  |  |
 | [425. Word Squares](https://leetcode.com/problems/word-squares/) | Hard     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/trie/425)  |  |
 | [336. Palindrome Pairs](https://leetcode.com/problems/palindrome-pairs/) | Hard     |  | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/trie/336)  |  |
+
+
+### Graph
+
+| Problem                                                                       | Difficulty | Topic | Solution                                                                              | Note |
+|-------------------------------------------------------------------------------|------------|-------|---------------------------------------------------------------------------------------|------|
+| [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces) | Medium     |       | [Solution](https://github.com/khaydarov/cs-labs/tree/master/leetcode/learn/graph/547) |      |

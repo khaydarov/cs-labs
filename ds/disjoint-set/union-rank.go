@@ -12,10 +12,11 @@ type UnionRankDisjointSet struct {
 // TC: O(log n)
 // SC: O(1)
 func (s *UnionRankDisjointSet) Find(x int) int {
-	for s.parent[x] != x {
-		x = s.parent[x]
+	if x == s.parent[x] {
+		return x
 	}
-	return x
+	s.parent[x] = s.Find(s.parent[x])
+	return s.parent[x]
 }
 
 // Union merges the sets that x and y belong to.

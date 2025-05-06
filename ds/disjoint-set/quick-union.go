@@ -11,10 +11,14 @@ type QuickUnionDisjointSet struct {
 // TC: O(n)
 // SC: O(1)
 func (s *QuickUnionDisjointSet) Find(x int) int {
-	for s.parent[x] != x {
-		x = s.parent[x]
+	if x == s.parent[x] {
+		return x
 	}
-	return x
+
+	// Optimize by finding the root of the parent of x.
+	// This is called path compression.
+	s.parent[x] = s.Find(s.parent[x])
+	return s.parent[x]
 }
 
 // Union merges the sets that x and y belong to.
