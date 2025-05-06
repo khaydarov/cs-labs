@@ -9,14 +9,14 @@ func Test_findCircleNum(t *testing.T) {
 		want        int
 	}{
 		{
-			name: "один город",
+			name: "one city",
 			isConnected: [][]int{
 				{1},
 			},
 			want: 1,
 		},
 		{
-			name: "два связанных города",
+			name: "two connected cities",
 			isConnected: [][]int{
 				{1, 1},
 				{1, 1},
@@ -24,7 +24,7 @@ func Test_findCircleNum(t *testing.T) {
 			want: 1,
 		},
 		{
-			name: "два несвязанных города",
+			name: "two non-connected cities",
 			isConnected: [][]int{
 				{1, 0},
 				{0, 1},
@@ -32,7 +32,7 @@ func Test_findCircleNum(t *testing.T) {
 			want: 2,
 		},
 		{
-			name: "три города с двумя провинциями",
+			name: "three cities with two provinces",
 			isConnected: [][]int{
 				{1, 1, 0},
 				{1, 1, 0},
@@ -41,7 +41,7 @@ func Test_findCircleNum(t *testing.T) {
 			want: 2,
 		},
 		{
-			name: "три связанных города",
+			name: "three connected cities",
 			isConnected: [][]int{
 				{1, 1, 1},
 				{1, 1, 1},
