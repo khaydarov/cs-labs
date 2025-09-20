@@ -18,8 +18,9 @@ type Hasher interface {
 }
 
 type MerkleTree struct {
-	root   *Node
-	leaves []*Node
+	root      *Node
+	leaves    []*Node
+	leavesMap map[string]int
 
 	hasher Hasher
 }
@@ -33,10 +34,16 @@ func New(values []string, hasher Hasher) *MerkleTree {
 		})
 	}
 
+	leavesMap := make(map[string]int)
+	for i, l := range leaves {
+		leavesMap[l.Hash.String()] = i
+	}
+
 	return &MerkleTree{
-		root:   buildRoot(leaves, hasher),
-		leaves: leaves,
-		hasher: hasher,
+		root:      buildRoot(leaves, hasher),
+		leaves:    leaves,
+		leavesMap: leavesMap,
+		hasher:    hasher,
 	}
 }
 
@@ -108,10 +115,10 @@ func (t *MerkleTree) Verify(value string) bool {
 }
 
 func (t *MerkleTree) findNode(value string) *Node {
-	for _, leaf := range t.leaves {
-		if bytes.Equal(leaf.Hash, t.hasher.Hash([]byte(value))) {
-			return leaf
-		}
+	hash := t.hasher.Hash([]byte(value))
+
+	if index, ok := t.leavesMap[hash.String()]; ok {
+		return t.leaves[index]
 	}
 
 	return nil

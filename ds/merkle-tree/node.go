@@ -10,7 +10,7 @@ type Node struct {
 	Right  *Node
 	Parent *Node
 
-	Hash   []byte
+	Hash   HashValue
 	Value  string
 	IsCopy bool
 }
