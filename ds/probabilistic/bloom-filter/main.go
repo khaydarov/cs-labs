@@ -2,6 +2,7 @@ package bloom_filter
 
 import (
 	"fmt"
+
 	"github.com/spaolacci/murmur3"
 )
 
